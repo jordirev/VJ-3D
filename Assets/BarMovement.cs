@@ -1,42 +1,82 @@
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
-public class BarMovement : MonoBehaviour
+public class TreeCutMovement : MonoBehaviour
 {
-    // Velocidad de movimiento del objeto
-    [SerializeField] private float velocidad = 5.0f;
+    public float speed = 5f;
+    private Rigidbody rb;
+    private float moveInput;
 
-    // Variable para controlar si el objeto puede moverse
-    private bool puedeMoverse = true;
+    private bool canMoveLeft = false;
+    private bool canMoveRight = false;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        // Busca la cámara y se suscribe al evento
+        CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
+        if (cam != null)
+        {
+            cam.OnRotationComplete += EnableMovement;
+        }
+
+        if (rb == null)
+        {
+            rb = gameObject.AddComponent<Rigidbody>();
+        }
+
+        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+    }
 
     void Update()
     {
-        if (!puedeMoverse) return;
-
-        // Obtener la entrada horizontal (flechas izquierda/derecha)
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-
-        // Crear el vector de movimiento (aplicado al eje Z en lugar del X)
-        Vector3 movimiento = new Vector3(-movimientoHorizontal, 0, 0);
-
-        // Mover el objeto
-        transform.Translate(movimiento * velocidad * Time.deltaTime);
+        moveInput = Input.GetAxis("Horizontal");
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void FixedUpdate()
     {
-        // Verificar si el objeto colisionado tiene la etiqueta "walls"
-        if (collision.gameObject.CompareTag("Walls"))
+        if ((moveInput < 0 && canMoveLeft) || (moveInput > 0 && canMoveRight))
         {
-            puedeMoverse = false;
+            Vector3 movement = new Vector3(0, 0, moveInput) * speed * Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + movement);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        // Permitir movimiento nuevamente cuando deje de colisionar con "walls"
         if (collision.gameObject.CompareTag("Walls"))
         {
-            puedeMoverse = true;
+            Vector3 contactPoint = collision.GetContact(0).point;
+            Vector3 direction = (contactPoint - transform.position).normalized;
+
+            if (direction.z > 0) // Wall is in front (moving forward)
+            {
+                canMoveRight = false;
+            }
+            else if (direction.z < 0) // Wall is behind (moving backward)
+            {
+                canMoveLeft = false;
+            }
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            // Al salir del muro, permitir movimiento en ambas direcciones
+            canMoveLeft = true;
+            canMoveRight = true;
+        }
+    }
+
+    public void EnableMovement()
+    {
+        canMoveLeft = true;
+        canMoveRight = true;
     }
 }
