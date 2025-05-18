@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrows Red Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
+      propertyPath: m_TagString
+      value: SmallArrow
+      objectReference: {fileID: 0}
     - target: {fileID: 489414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.96
+      value: 5.34
       objectReference: {fileID: 0}
     - target: {fileID: 489414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.42
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 489414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.03
+      value: -3.67
       objectReference: {fileID: 0}
     - target: {fileID: 489414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
       propertyPath: m_LocalRotation.w
