@@ -7,19 +7,19 @@ public class TreeCutMovement : MonoBehaviour
     private Rigidbody rb;
     private float moveInput;
 
-    private bool canMoveLeft = false;
-    private bool canMoveRight = false;
+    private bool canMoveLeft = true;  //canviar els dos a false
+    private bool canMoveRight = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         // Busca la cámara y se suscribe al evento
-        CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
+        /**CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
         if (cam != null)
         {
             cam.OnRotationComplete += EnableMovement;
-        }
+        }*/
 
         if (rb == null)
         {
@@ -71,6 +71,25 @@ public class TreeCutMovement : MonoBehaviour
             // Al salir del muro, permitir movimiento en ambas direcciones
             canMoveLeft = true;
             canMoveRight = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BigArrow"))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= 1.25f;
+            transform.localScale = newScale;
+            Debug.Log("PowerUp utilizado por el jugador");
+        }
+
+        if (other.CompareTag("SmallArrow"))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= 0.75f;
+            transform.localScale = newScale;
+            Debug.Log("PowerUp utilizado por el jugador");
         }
     }
 
