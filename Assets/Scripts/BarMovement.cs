@@ -65,40 +65,6 @@ public class TreeCutMovement : MonoBehaviour
                 canMoveLeft = false;
             }
         }
-
-        if (collision.gameObject.CompareTag("Pistols"))
-        {
-            // Obtener el BoxCollider del tree_cut
-            BoxCollider box = GetComponent<BoxCollider>();
-            if (box != null)
-            {
-                // Calcular los extremos en espacio local
-                Vector3 leftLocal = new Vector3(-box.size.x * 0.5f, 0, 0);
-                Vector3 rightLocal = new Vector3(box.size.x * 0.5f, 0, 0);
-
-                // Convertir a espacio global
-                Vector3 leftWorld = transform.TransformPoint(leftLocal);
-                Vector3 rightWorld = transform.TransformPoint(rightLocal);
-
-                // Instanciar la primera pistola en el extremo izquierdo
-                GameObject pistol1 = Instantiate(
-                    pistolPrefab,
-                    leftWorld,
-                    transform.rotation,
-                    transform
-                );
-                Destroy(pistol1, 10f);
-
-                // Instanciar la segunda pistola en el extremo derecho
-                GameObject pistol2 = Instantiate(
-                    pistolPrefab,
-                    rightWorld,
-                    transform.rotation,
-                    transform
-                );
-                Destroy(pistol2, 10f);
-            }
-        }
     }
 
     void OnCollisionExit(Collision collision)
@@ -113,6 +79,10 @@ public class TreeCutMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        /**
+         * Principalment els codis dels PowerUps
+         */
+
         if (other.CompareTag("BigArrow"))
         {
             Vector3 newScale = transform.localScale;
@@ -127,6 +97,42 @@ public class TreeCutMovement : MonoBehaviour
             newScale.x *= 0.75f;
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
+        }
+
+        if (other.CompareTag("Pistols"))
+        {
+            // Obtener el BoxCollider del tree_cut
+            MeshCollider mesh = GetComponent<MeshCollider>();
+            if (mesh != null)
+            {
+                // Calcular los extremos en espacio local usando bounds del MeshCollider
+                Bounds bounds = mesh.sharedMesh.bounds;
+                Vector3 leftLocal = new Vector3(bounds.min.x +1, 0.1f, 0);
+                Vector3 rightLocal = new Vector3(bounds.max.x -1, 0.1f, 0);
+
+                // Convertir a espacio global
+                Vector3 leftWorld = transform.TransformPoint(leftLocal);
+                Vector3 rightWorld = transform.TransformPoint(rightLocal);
+
+                // Instanciar la primera pistola en el extremo izquierdo
+                GameObject pistol1 = Instantiate(
+                    pistolPrefab,
+                    leftWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol1, 20f);
+
+                // Instanciar la segunda pistola en el extremo derecho
+                GameObject pistol2 = Instantiate(
+                    pistolPrefab,
+                    rightWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol2, 20f);
+                Debug.Log("PowerUp utilizado por el jugador");
+            }
         }
     }
 
