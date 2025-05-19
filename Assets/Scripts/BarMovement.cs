@@ -10,6 +10,8 @@ public class TreeCutMovement : MonoBehaviour
     private bool canMoveLeft = true;  //canviar els dos a false
     private bool canMoveRight = true;
 
+    public GameObject pistolPrefab;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,6 +32,7 @@ public class TreeCutMovement : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     void Update()
@@ -60,6 +63,40 @@ public class TreeCutMovement : MonoBehaviour
             else if (direction.z < 0) // Wall is behind (moving backward)
             {
                 canMoveLeft = false;
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Pistols"))
+        {
+            // Obtener el BoxCollider del tree_cut
+            BoxCollider box = GetComponent<BoxCollider>();
+            if (box != null)
+            {
+                // Calcular los extremos en espacio local
+                Vector3 leftLocal = new Vector3(-box.size.x * 0.5f, 0, 0);
+                Vector3 rightLocal = new Vector3(box.size.x * 0.5f, 0, 0);
+
+                // Convertir a espacio global
+                Vector3 leftWorld = transform.TransformPoint(leftLocal);
+                Vector3 rightWorld = transform.TransformPoint(rightLocal);
+
+                // Instanciar la primera pistola en el extremo izquierdo
+                GameObject pistol1 = Instantiate(
+                    pistolPrefab,
+                    leftWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol1, 10f);
+
+                // Instanciar la segunda pistola en el extremo derecho
+                GameObject pistol2 = Instantiate(
+                    pistolPrefab,
+                    rightWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol2, 10f);
             }
         }
     }

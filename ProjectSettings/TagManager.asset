@@ -9,6 +9,7 @@ TagManager:
   - Destructible
   - BigArrow
   - SmallArrow
+  - Pistols
   layers:
   - Default
   - TransparentFX
