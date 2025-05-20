@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7337786731049658798}
   - component: {fileID: 4297100888515246256}
   - component: {fileID: 4208207588556741864}
+  - component: {fileID: 4988358493105353745}
   m_Layer: 0
   m_Name: water
   m_TagString: Destructible
@@ -122,5 +123,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577112a75cc44e44eb1993ae58db0ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollX: 0.5
+  scrollX: 0.3
   scrollY: 0
+--- !u!114 &4988358493105353745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627391116705222612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs:
+  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
+  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
+  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}

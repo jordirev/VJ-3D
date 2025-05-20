@@ -6,8 +6,8 @@ public class PowerUpMovement : MonoBehaviour
 
     void Update()
     {
-        // Mueve el objeto en el eje Z (adelante)
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        // Mueve el objeto en el eje X (derecha)
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -16,7 +16,7 @@ public class PowerUpMovement : MonoBehaviour
         {
             Debug.Log("PowerUp recogido por el jugador");
             // Aquí puedes añadir la lógica que quieras al recoger el power-up
-            //Destroy(gameObject); 
+            Destroy(gameObject); 
         }
     }
 }
