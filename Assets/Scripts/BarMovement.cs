@@ -121,7 +121,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol1, 20f);
+                Destroy(pistol1, 10000f);
 
                 // Instanciar la segunda pistola en el extremo derecho
                 GameObject pistol2 = Instantiate(
@@ -130,7 +130,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol2, 20f);
+                Destroy(pistol2, 10000);
                 Debug.Log("PowerUp utilizado por el jugador");
             }
         }

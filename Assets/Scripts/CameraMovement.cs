@@ -3,7 +3,7 @@ using System;
 
 public class CameraMovement : MonoBehaviour
 {
-    /**public float rotationSpeed = 30f;
+    public float rotationSpeed = 30f;
     private float accumulatedAngle = 0f;
     private bool hasStartedGame = false;
 
@@ -25,5 +25,5 @@ public class CameraMovement : MonoBehaviour
                 OnRotationComplete?.Invoke(); // Lanza el callback
             }
         }
-    }*/
+    }
 }
