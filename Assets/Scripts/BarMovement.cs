@@ -10,6 +10,8 @@ public class TreeCutMovement : MonoBehaviour
     private bool canMoveLeft = true;  //canviar els dos a false
     private bool canMoveRight = true;
 
+    public GameObject pistolPrefab;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,6 +32,7 @@ public class TreeCutMovement : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     void Update()
@@ -76,6 +79,10 @@ public class TreeCutMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        /**
+         * Principalment els codis dels PowerUps
+         */
+
         if (other.CompareTag("BigArrow"))
         {
             Vector3 newScale = transform.localScale;
@@ -90,6 +97,42 @@ public class TreeCutMovement : MonoBehaviour
             newScale.x *= 0.75f;
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
+        }
+
+        if (other.CompareTag("Pistols"))
+        {
+            // Obtener el BoxCollider del tree_cut
+            MeshCollider mesh = GetComponent<MeshCollider>();
+            if (mesh != null)
+            {
+                // Calcular los extremos en espacio local usando bounds del MeshCollider
+                Bounds bounds = mesh.sharedMesh.bounds;
+                Vector3 leftLocal = new Vector3(bounds.min.x +1, 0.1f, 0);
+                Vector3 rightLocal = new Vector3(bounds.max.x -1, 0.1f, 0);
+
+                // Convertir a espacio global
+                Vector3 leftWorld = transform.TransformPoint(leftLocal);
+                Vector3 rightWorld = transform.TransformPoint(rightLocal);
+
+                // Instanciar la primera pistola en el extremo izquierdo
+                GameObject pistol1 = Instantiate(
+                    pistolPrefab,
+                    leftWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol1, 10000f); // CAAAAAAAAAAAAAANVIAR A 20 
+
+                // Instanciar la segunda pistola en el extremo derecho
+                GameObject pistol2 = Instantiate(
+                    pistolPrefab,
+                    rightWorld,
+                    transform.rotation,
+                    transform
+                );
+                Destroy(pistol2, 10000); // CAAAAAAAAAAAAAAAAAAAANVIAR A 20 
+                Debug.Log("PowerUp utilizado por el jugador");
+            }
         }
     }
 
