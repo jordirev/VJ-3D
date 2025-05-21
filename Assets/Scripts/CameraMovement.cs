@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        /**
         if (!hasStartedGame)
         {
             float angle = rotationSpeed * Time.deltaTime;
@@ -24,6 +25,6 @@ public class CameraMovement : MonoBehaviour
                 hasStartedGame = true;
                 OnRotationComplete?.Invoke(); // Lanza el callback
             }
-        }
+        }*/
     }
 }

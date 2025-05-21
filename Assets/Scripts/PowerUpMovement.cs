@@ -4,10 +4,16 @@ public class PowerUpMovement : MonoBehaviour
 {
     public float speed = 3f; // Velocidad en unidades por segundo
 
+    private void Start()
+    {
+        // rotar 90 grados en el eje Y
+        transform.Rotate(0, 90, 0);
+    }
     void Update()
     {
-        // Mueve el objeto en el eje X (derecha)
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        //mover objeto hacia delante eje Z
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
     }
 
     void OnTriggerEnter(Collider other)

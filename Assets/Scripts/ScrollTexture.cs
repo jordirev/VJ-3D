@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TextureScroller : MonoBehaviour
 {
-    public float scrollX = 0.1f;
-    public float scrollY = 0.1f;
+    float scrollX = 0f;
+    float scrollY = 0.3f;
 
     private Renderer rend;
 
@@ -16,6 +16,7 @@ public class TextureScroller : MonoBehaviour
     {
         float offsetX = Time.time * scrollX;
         float offsetY = Time.time * scrollY;
+ 
         rend.material.mainTextureOffset = new Vector2(offsetX, offsetY);
     }
 }

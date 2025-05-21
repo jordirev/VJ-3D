@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577112a75cc44e44eb1993ae58db0ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollX: 0.3
-  scrollY: 0
+  scrollX: 0
+  scrollY: 0.3
 --- !u!114 &4988358493105353745
 MonoBehaviour:
   m_ObjectHideFlags: 0

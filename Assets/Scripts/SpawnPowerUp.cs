@@ -9,11 +9,11 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void Start()
     {
-        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Bloque").Length;
+        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
     }
     void Update()
     {
-        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Bloque").Length;
+        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
     }
 
     private void OnCollisionEnter(Collision collision)

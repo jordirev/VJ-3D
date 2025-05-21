@@ -10,6 +10,8 @@ TagManager:
   - BigArrow
   - SmallArrow
   - Pistols
+  - Bullet
+  - Ball
   layers:
   - Default
   - TransparentFX
