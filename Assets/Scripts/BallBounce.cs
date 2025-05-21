@@ -8,7 +8,7 @@ public class BallBounce : MonoBehaviour
     [SerializeField] private Vector3 direccionInicial = new Vector3(1f, 0f, 0f);
 
     [Header("L�mites")]
-    [SerializeField] private float velocidadMaxima = 10f;
+    [SerializeField] private float velocidadMaxima = 8f;
 
     [Header("Interacción con objetos")]
     [SerializeField] private string tagDestruible = "Destructible"; // Tags de objetos que no se destruyen

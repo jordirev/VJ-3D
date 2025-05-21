@@ -45,7 +45,12 @@ public class TreeCutMovement : MonoBehaviour
         if ((moveInput < 0 && canMoveLeft) || (moveInput > 0 && canMoveRight))
         {
             Vector3 movement = new Vector3(0, 0, moveInput) * speed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + movement);
+            Vector3 newPosition = rb.position + movement;
+
+            // Limita el movimiento según valores observados
+            newPosition.z = Mathf.Clamp(newPosition.z, -6.248f, 5.744f);
+
+            rb.MovePosition(newPosition);
         }
     }
 
