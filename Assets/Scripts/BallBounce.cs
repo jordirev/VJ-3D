@@ -92,6 +92,7 @@ public class BallBounce : MonoBehaviour
         {
 
             DestruirObjetoYManejarObjetosSuperiores(objetoColisionado);
+            ScoreManager.instance.AddPoints(500);
 
         }
 

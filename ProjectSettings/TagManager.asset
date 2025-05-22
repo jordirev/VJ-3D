@@ -12,6 +12,7 @@ TagManager:
   - Pistols
   - Bullet
   - Ball
+  - GodMode
   layers:
   - Default
   - TransparentFX
