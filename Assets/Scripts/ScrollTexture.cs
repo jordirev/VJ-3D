@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TextureScroller : MonoBehaviour
 {
-    float scrollX = 0f;
-    float scrollY = 0.3f;
+    float scrollX = -0.3f;
+    float scrollY = 0.0f;
 
     private Renderer rend;
 

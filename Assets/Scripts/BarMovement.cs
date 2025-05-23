@@ -1,5 +1,6 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TreeCutMovement : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TreeCutMovement : MonoBehaviour
     private bool canMoveRight = true;
 
     public GameObject pistolPrefab;
+    static private string[] levels = { "Nivell1", "Nivell2", "Nivell3", "Nivell4", "Nivell5" };
+    static private int currentLevel;
 
     void Start()
     {
@@ -38,6 +41,7 @@ public class TreeCutMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
+        if (Input.anyKeyDown) changeScene();
     }
 
     void FixedUpdate()
@@ -104,6 +108,12 @@ public class TreeCutMovement : MonoBehaviour
             Debug.Log("PowerUp utilizado por el jugador");
         }
 
+        if (other.CompareTag("NextLevel"))
+        {
+            SceneManager.LoadScene("Nivell2");
+            Debug.Log("PowerUp utilizado por el jugador");
+        }
+
         if (other.CompareTag("Pistols"))
         {
             // Obtener el BoxCollider del tree_cut
@@ -112,8 +122,8 @@ public class TreeCutMovement : MonoBehaviour
             {
                 // Calcular los extremos en espacio local usando bounds del MeshCollider
                 Bounds bounds = mesh.sharedMesh.bounds;
-                Vector3 leftLocal = new Vector3(bounds.min.x +1, 0.1f, 0);
-                Vector3 rightLocal = new Vector3(bounds.max.x -1, 0.1f, 0);
+                Vector3 leftLocal = new Vector3(bounds.min.x + 1, 0.1f, 0);
+                Vector3 rightLocal = new Vector3(bounds.max.x - 1, 0.1f, 0);
 
                 // Convertir a espacio global
                 Vector3 leftWorld = transform.TransformPoint(leftLocal);
@@ -145,5 +155,27 @@ public class TreeCutMovement : MonoBehaviour
     {
         canMoveLeft = true;
         canMoveRight = true;
+    }
+
+    private void changeScene()
+    {
+        switch (true)
+        {
+            case bool _ when Input.GetKeyDown(KeyCode.Alpha1):
+                SceneManager.LoadScene("Nivell1");
+                break;
+            case bool _ when Input.GetKeyDown(KeyCode.Alpha2):
+                SceneManager.LoadScene("Nivell2");
+                break;
+            case bool _ when Input.GetKeyDown(KeyCode.Alpha3):
+                SceneManager.LoadScene("Nivell3");
+                break;
+            case bool _ when Input.GetKeyDown(KeyCode.Alpha4):
+                SceneManager.LoadScene("Nivell4");
+                break;
+            case bool _ when Input.GetKeyDown(KeyCode.Alpha5):
+                SceneManager.LoadScene("Nivell5");
+                break;
+        }
     }
 }

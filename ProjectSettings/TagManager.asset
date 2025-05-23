@@ -12,6 +12,7 @@ TagManager:
   - Pistols
   - Bullet
   - Ball
+  - NextLevel
   layers:
   - Default
   - TransparentFX

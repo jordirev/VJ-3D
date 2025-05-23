@@ -123,8 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577112a75cc44e44eb1993ae58db0ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollX: 0
-  scrollY: 0.3
 --- !u!114 &4988358493105353745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpPrefabs:
+  - {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
   - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
   - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
   - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
