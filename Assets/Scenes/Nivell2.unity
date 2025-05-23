@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 63c7f212f60aadc47945b935dc40e7c0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 1718326211}
   - component: {fileID: 1718326210}
   - component: {fileID: 1718326209}
+  - component: {fileID: 1718326212}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1578,11 +1579,11 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 100
+  field of view: 15
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1605,13 +1606,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718326208}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2665905, y: -0.6549271, z: 0.26659054, w: 0.6549272}
-  m_LocalPosition: {x: 10.59, y: 8.75, z: -0.07}
+  m_LocalRotation: {x: 0.25537983, y: -0.4195667, z: 0.124281295, w: 0.862148}
+  m_LocalPosition: {x: 40.23, y: 32.95, z: -31.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 44.298, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: -51.9, z: 0}
+--- !u!114 &1718326212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718326208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36908a89c25033e4fa97d726f2bde5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
 --- !u!1 &1731914735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9181608356817887606, guid: c960f18897c158148822a50d7fa9f286, type: 3}
