@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - Ball
   - NextLevel
+  - GodMode
   layers:
   - Default
   - TransparentFX

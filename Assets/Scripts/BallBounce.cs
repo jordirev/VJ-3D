@@ -88,18 +88,19 @@ public class BallBounce : MonoBehaviour
 
         // Verificar si el objeto debe ser destruido (no está en la lista de tags no destruibles)
 
-        if (objetoColisionado.CompareTag(tagDestruible))
+     /*   if (objetoColisionado.CompareTag(tagDestruible))
         {
 
             DestruirObjetoYManejarObjetosSuperiores(objetoColisionado);
+            ScoreManager.instance.AddPoints(500);
 
-        }
+        }*/
 
         float velocidad = ultimaVelocidad.magnitude;
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
         rb.linearVelocity = direccion * Mathf.Max(velocidad, 0f);
     }
-
+  
     private void ManejarRebotePared(Collision collision)
     {
         // Incrementar contador de rebotes en pared
@@ -136,7 +137,7 @@ public class BallBounce : MonoBehaviour
 
         Debug.Log($"Rebote en pared #{contadorRebotesPared}, Dirección: {direccionRebote}");
     }
-
+  
     private Vector3 PerturbacionAngulo(Vector3 direccion)
     {
         // Crear un vector de perturbación que modifica la dirección original
@@ -154,8 +155,8 @@ public class BallBounce : MonoBehaviour
         return nuevaDireccion.normalized;
     }
 
-
-    private void DestruirObjetoYManejarObjetosSuperiores(GameObject objetoColisionado)
+    
+  /*  private void DestruirObjetoYManejarObjetosSuperiores(GameObject objetoColisionado)
     {
         Debug.Log("Destruyendo: " + objetoColisionado.name);
 
@@ -215,5 +216,5 @@ public class BallBounce : MonoBehaviour
                 Debug.Log("Objeto que cae: " + col.gameObject.name);
             }
         }
-    }
+    }*/
 }
