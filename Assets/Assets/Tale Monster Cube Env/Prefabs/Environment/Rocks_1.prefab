@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970846908555480535}
   - component: {fileID: 3814610791191742961}
+  - component: {fileID: 3869394776648239326}
   - component: {fileID: 3606810772444920681}
   - component: {fileID: 1920447143658080932}
   - component: {fileID: 6517158007966257617}
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,6 +44,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993118403356582301}
   m_Mesh: {fileID: 4300000, guid: 001026c98a455f540bcbb855fca838fc, type: 2}
+--- !u!114 &3869394776648239326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993118403356582301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs: []
 --- !u!23 &3606810772444920681
 MeshRenderer:
   m_ObjectHideFlags: 0
