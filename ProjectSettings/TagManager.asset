@@ -14,6 +14,7 @@ TagManager:
   - Ball
   - NextLevel
   - GodMode
+  - Play
   layers:
   - Default
   - TransparentFX
