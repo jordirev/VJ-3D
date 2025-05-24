@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7468250544675877930}
   - component: {fileID: 6303060841253893793}
   - component: {fileID: 7712927943555272438}
+  - component: {fileID: 182972393156851813}
+  - component: {fileID: 7376841276351810915}
   m_Layer: 0
   m_Name: Base_3
   m_TagString: Destructible
@@ -65,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7e0463e6cfc5024c9ec44e8a7feec23, type: 2}
+  - {fileID: 2100000, guid: 10758faf62da7984fa55d0fab1382efc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +96,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8583790790935268714}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 39e2365cdad09544b8077e365c9d1785, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -109,3 +111,47 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 70ea66d1fbe13054086dc4a7289ad3b0, type: 2}
+--- !u!54 &182972393156851813
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583790790935268714}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 122
+  m_CollisionDetection: 1
+--- !u!114 &7376841276351810915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583790790935268714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs:
+  - {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
+  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
+  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}

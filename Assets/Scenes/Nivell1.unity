@@ -1689,6 +1689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4297100888515246256, guid: b65b146bc7750254181f043d90410137, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4627391116705222612, guid: b65b146bc7750254181f043d90410137, type: 3}
       propertyPath: m_Name
       value: water (12)
