@@ -14,6 +14,11 @@ public class ScoreManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -22,14 +27,35 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
+
     public void AddPoints(int amount)
     {
         score += amount;
         UpdateScoreText();
+
+        //CUANDO TERMINE LA PARTIDA LLAMAR A:
+        // ScoreManager.instance.SaveHighScore();
+        //Y QUITAR LINEA DE ABAJO
+        SaveHighScore();
     }
 
     void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    public void SaveHighScore()
+    {
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }

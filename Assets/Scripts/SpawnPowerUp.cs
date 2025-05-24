@@ -44,6 +44,7 @@ public class SpawnPowerUp : MonoBehaviour
 
             //Destruim el bloc amb el que s'ha colisionatm amb la pilota o la bala
             Destroy(gameObject);
+            ScoreManager.instance.AddPoints(500);
         }
     }
 }
