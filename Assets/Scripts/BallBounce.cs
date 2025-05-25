@@ -25,6 +25,7 @@ public class BallBounce : MonoBehaviour
     private Vector3 ultimaVelocidad;
     private int contadorRebotesPared = 0;
     private Vector3 ultimaNormalPared = Vector3.zero;
+    public bool isPowerBallActive = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -76,6 +77,7 @@ public class BallBounce : MonoBehaviour
         if (objetoColisionado.CompareTag(tagBarra))
         {
             contadorRebotesPared = 0;
+            Debug.Log("Choca barra");
             Debug.Log("Contador rebotes reiniciado por golpe a barra");
         }
 
@@ -86,15 +88,13 @@ public class BallBounce : MonoBehaviour
             return;
         }
 
-        // Verificar si el objeto debe ser destruido (no está en la lista de tags no destruibles)
-
-     /*   if (objetoColisionado.CompareTag(tagDestruible))
+        //PowerBall
+        if (isPowerBallActive && collision.gameObject.CompareTag("Destructible"))
         {
-
-            DestruirObjetoYManejarObjetosSuperiores(objetoColisionado);
-            ScoreManager.instance.AddPoints(500);
-
-        }*/
+            // Evitar rebote artificialmente: forzamos que no cambie la dirección
+            Debug.Log("entra en PowerBall de BallBounce");
+            return;
+        }
 
         float velocidad = ultimaVelocidad.magnitude;
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
@@ -154,67 +154,4 @@ public class BallBounce : MonoBehaviour
         // Normalizar para mantener la magnitud
         return nuevaDireccion.normalized;
     }
-
-    
-  /*  private void DestruirObjetoYManejarObjetosSuperiores(GameObject objetoColisionado)
-    {
-        Debug.Log("Destruyendo: " + objetoColisionado.name);
-
-        Destroy(objetoColisionado, 0.1f);
-
-
-        // Buscar objetos que están encima
-        Collider[] objetosSuperior = Physics.OverlapBox(
-            objetoColisionado.transform.position + Vector3.up * 1.1f,
-            objetoColisionado.GetComponent<Collider>().bounds.extents,
-            objetoColisionado.transform.rotation);
-
-
-        // Para cada objeto encontrado encima, habilitar gravedad
-        foreach (Collider col in objetosSuperior)
-        {
-            if (col.gameObject != objetoColisionado && col.gameObject != gameObject)
-            {
-                Rigidbody objetoRb = col.GetComponent<Rigidbody>();
-
-                // Si no tiene Rigidbody, añadirlo para que caiga
-                if (objetoRb == null)
-                {
-                    objetoRb = col.gameObject.AddComponent<Rigidbody>();
-                }
-
-                // Guardar la posición X y Z original
-                Vector3 posicionOriginal = col.gameObject.transform.position;
-                float posX = posicionOriginal.x;
-                float posZ = posicionOriginal.z;
-
-                // Activar gravedad para que caiga
-                objetoRb.useGravity = true;
-                objetoRb.isKinematic = false;
-
-                // Congelar posición en X y Z para que solo se mueva en Y
-                objetoRb.constraints = RigidbodyConstraints.FreezePositionX |
-                                      RigidbodyConstraints.FreezePositionZ |
-                                      RigidbodyConstraints.FreezeRotation;
-
-                // Aumentar la masa para que caiga rápido y sin efectos secundarios
-                objetoRb.mass = 10f;
-
-                objetoRb.linearDamping = 0.5f;
-
-                // Detección de colisiones continua para evitar atravesar el suelo
-                objetoRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-
-                PhysicsMaterial material = new PhysicsMaterial("LowBounce");
-                material.bounciness = 0.0f; // Muy poco rebote
-                material.dynamicFriction = 1.0f; // Bastante fricción
-                material.staticFriction = 1.0f;
-                col.sharedMaterial = material;
-
-
-                Debug.Log("Objeto que cae: " + col.gameObject.name);
-            }
-        }
-    }*/
 }

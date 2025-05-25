@@ -15,6 +15,10 @@ TagManager:
   - NextLevel
   - GodMode
   - Play
+  - PowerBallOff
+  - PowerBallOn
+  - ExtraBalls
+  - Magnet
   layers:
   - Default
   - TransparentFX

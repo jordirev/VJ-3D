@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3869394776648239326, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
       propertyPath: powerUpPrefabs.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3869394776648239326, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
       propertyPath: 'powerUpPrefabs.Array.data[0]'
@@ -525,6 +525,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_1
       objectReference: {fileID: 0}
+    - target: {fileID: 9177465823856699898, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: powerUpPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177465823856699898, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: 'powerUpPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
+    - target: {fileID: 9177465823856699898, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: 'powerUpPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
+    - target: {fileID: 9177465823856699898, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: 'powerUpPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -622,6 +638,7 @@ MonoBehaviour:
   tagBarra: Player
   maxRebotesPared: 4
   factorPerturbacion: 0.3
+  isPowerBallActive: 0
 --- !u!135 &417778933
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2995,6 +3012,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
+      propertyPath: ballon_obj
+      value: 
+      objectReference: {fileID: 417778930}
+    - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
+      propertyPath: prefabBall
+      value: 
+      objectReference: {fileID: 417778930}
+    - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: pistolPrefab
       value: 
       objectReference: {fileID: 2667687904677343727, guid: bd04fb96ae86d9d4593c8a1fbff69599, type: 3}
@@ -5305,6 +5330,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218066295318115740, guid: ba6beab635d60d54abeff43810616e63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5063412152447378137, guid: ba6beab635d60d54abeff43810616e63, type: 3}
+      propertyPath: powerUpPrefabs.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

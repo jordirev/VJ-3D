@@ -15,6 +15,8 @@ public class TreeCutMovement : MonoBehaviour
     static private string[] levels = { "Nivell1", "Nivell2", "Nivell3", "Nivell4", "Nivell5" };
     static private int currentLevel;
 
+    public GameObject prefabBall;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -148,6 +150,68 @@ public class TreeCutMovement : MonoBehaviour
                 Destroy(pistol2, 10000); // CAAAAAAAAAAAAAAAAAAAANVIAR A 20 
                 Debug.Log("PowerUp utilizado por el jugador");
             }
+        }
+
+        if (other.CompareTag("PowerBallOn"))
+        {
+            GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+            if (ball != null)
+            {
+                BallBounce ballScript = ball.GetComponent<BallBounce>();
+                if (ballScript != null)
+                {
+                    ballScript.isPowerBallActive = true;
+                }
+            }
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("PowerBallOff"))
+        {
+            GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+            if (ball != null)
+            {
+                BallBounce ballScript = ball.GetComponent<BallBounce>();
+                if (ballScript != null)
+                {
+                    ballScript.isPowerBallActive = false;
+                }
+            }
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("ExtraBalls"))
+        {
+            GameObject mainBall = GameObject.FindGameObjectWithTag("Ball");
+            if (mainBall != null)
+            {
+                Vector3 spawnPosition = mainBall.transform.position;
+
+                GameObject ball1 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
+                GameObject ball2 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
+                Debug.Log("Aparecen extra balls");
+
+                Rigidbody mainRb = mainBall.GetComponent<Rigidbody>();
+                Vector3 direccionPrincipal = mainRb.linearVelocity.normalized;
+
+                // Rotamos la dirección un poco a la izquierda y a la derecha (15 grados)
+                Vector3 direccion1 = Quaternion.Euler(0, -15f, 0) * direccionPrincipal;
+                Vector3 direccion2 = Quaternion.Euler(0, 15f, 0) * direccionPrincipal;
+
+                float velocidad = 10f;
+
+                ball1.GetComponent<Rigidbody>().linearVelocity = direccion1 * velocidad;
+                ball2.GetComponent<Rigidbody>().linearVelocity = direccion2 * velocidad;
+
+                Destroy(other.gameObject);
+            }
+        }
+
+        if (other.CompareTag("Magnet"))
+        {
+           
         }
     }
 
