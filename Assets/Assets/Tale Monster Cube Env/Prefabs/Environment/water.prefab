@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4297100888515246256}
   - component: {fileID: 4208207588556741864}
   - component: {fileID: 4988358493105353745}
+  - component: {fileID: 3101031344291827186}
   m_Layer: 0
   m_Name: water
   m_TagString: Destructible
@@ -96,7 +97,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4627391116705222612}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 39e2365cdad09544b8077e365c9d1785, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -140,3 +141,30 @@ MonoBehaviour:
   - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
   - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
   - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
+--- !u!54 &3101031344291827186
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627391116705222612}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 122
+  m_CollisionDetection: 1

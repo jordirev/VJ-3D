@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/Farming_game_FX.meta
+guid: 557162370d6b3c745a8a1b656b64b589
+========
 guid: f7bc8159c30ec4b40a945a000ae7a1b4
+>>>>>>>> fd6f012f557b5dff1ef8fce3a7ddc3f17afdf5d9:Assets/Assets/Thaleah_PixelFont.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
