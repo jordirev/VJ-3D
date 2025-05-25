@@ -597,6 +597,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3869394776648239326, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: powerUpPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869394776648239326, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: 'powerUpPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138616, guid: 9747013bfc80c7648bebc0e13034f691, type: 3}
+    - target: {fileID: 3869394776648239326, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
+      propertyPath: 'powerUpPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5236371055654364939, guid: 8a0634b571b20aa409700af7df04b000, type: 3}
     - target: {fileID: 4993118403356582301, guid: 73b5d765951dd7c49a59e29e4bda8f80, type: 3}
       propertyPath: m_Name
       value: Rocks_1
