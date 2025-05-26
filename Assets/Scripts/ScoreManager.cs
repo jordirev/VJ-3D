@@ -3,48 +3,37 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
-
     public TextMeshProUGUI scoreText;
-    private int score = 0;
-
-    void Awake()
-    {
-        // Singleton pattern para que sea accesible desde otros scripts
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {
         UpdateScoreText();
     }
 
+    void Update()
+    {
+        UpdateScoreText();
+    }
 
-    public void AddPoints(int amount)
+
+  /*  public void AddPoints(int amount)
     {
         score += amount;
         UpdateScoreText();
 
-        //CUANDO TERMINE LA PARTIDA LLAMAR A:
-        // ScoreManager.instance.SaveHighScore();
-        //Y QUITAR LINEA DE ABAJO
+   
         SaveHighScore();
-    }
+    }*/
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        if (GameManager.Instance != null)
+        {
+            scoreText.text = "Score: " + GameManager.Instance.score;
+        }
     }
 
-    public void SaveHighScore()
+  /*  public void SaveHighScore()
     {
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         if (score > highScore)
@@ -52,10 +41,10 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
             PlayerPrefs.Save();
         }
-    }
+    }*/
 
-    public int GetScore()
+   /* public int GetScore()
     {
         return score;
-    }
+    }*/
 }

@@ -3245,6 +3245,7 @@ GameObject:
   - component: {fileID: 1653009015}
   - component: {fileID: 1653009014}
   - component: {fileID: 1653009016}
+  - component: {fileID: 1653009017}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -3293,6 +3294,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 2018223960}
   delay: 4.75
+--- !u!114 &1653009017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653009013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639ae682ca06d9b4e966bd0615e75da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  vidas: 3
 --- !u!1001 &1654827299
 PrefabInstance:
   m_ObjectHideFlags: 0

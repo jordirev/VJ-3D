@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SpawnPowerUp : MonoBehaviour
 {
+    public static GameManager Instance;
     public GameObject[] powerUpPrefabs;
 
     private float spwanProbability = 0.2f;
@@ -44,7 +45,7 @@ public class SpawnPowerUp : MonoBehaviour
 
             //Destruim el bloc amb el que s'ha colisionatm amb la pilota o la bala
             Destroy(gameObject);
-            ScoreManager.instance.AddPoints(500);
+            GameManager.Instance.AddPoints(500);
         }
     }
 }
