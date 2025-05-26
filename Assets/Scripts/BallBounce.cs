@@ -26,6 +26,10 @@ public class BallBounce : MonoBehaviour
     private int contadorRebotesPared = 0;
     private Vector3 ultimaNormalPared = Vector3.zero;
     public bool isPowerBallActive = false;
+    private bool isMagnetActive = false;
+    private bool isEnganchada = false;  
+    private Transform paddleTransform;
+    [SerializeField] private Vector3 offsetDesdePaleta = new Vector3(-0.5f, -0.4f, 0f);
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +57,25 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isEnganchada && paddleTransform != null)
+        {
+            // La bola sigue la paleta
+            transform.position = paddleTransform.position + offsetDesdePaleta;
+
+            // Esperar que el jugador pulse ESPACIO
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+            //    isMagnetActive = false;
+                isEnganchada = false;
+                transform.SetParent(null);
+                rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
+            }
+
+            return; // no aplicar lógica normal mientras esté enganchada
+        }
+
+
         if (rb.linearVelocity.magnitude < velocidadInicial)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * velocidadInicial;
@@ -79,6 +102,16 @@ public class BallBounce : MonoBehaviour
             contadorRebotesPared = 0;
             Debug.Log("Choca barra");
             Debug.Log("Contador rebotes reiniciado por golpe a barra");
+
+            if (isMagnetActive && !isEnganchada)
+            {
+                // Engancha la bola a la barra, pero no la lanza
+                rb.linearVelocity = Vector3.zero;
+                transform.position = paddleTransform.position + offsetDesdePaleta;
+                transform.SetParent(paddleTransform);
+                isEnganchada = true;
+                Debug.Log("¡Bola enganchada a la barra por imán!");
+            }
         }
 
         // Verificar si colisionó con una pared
@@ -153,5 +186,11 @@ public class BallBounce : MonoBehaviour
 
         // Normalizar para mantener la magnitud
         return nuevaDireccion.normalized;
+    }
+
+    public void ActivarIman(Transform paddle)
+    {
+        isMagnetActive = true;
+        paddleTransform = paddle;
     }
 }

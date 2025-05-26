@@ -211,7 +211,33 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("Magnet"))
         {
-           
+            GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+
+            if (ball != null)
+            {
+                BallBounce ballScript = ball.GetComponent<BallBounce>();
+                if (ballScript != null)
+                {
+                    ballScript.ActivarIman(transform); // le pasas tu Transform de la paleta
+                }
+            }
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("PUgodMode"))
+        {
+            GameObject godModeWall = GameObject.Find("GameManager"); // Cambia por el nombre real del GameObject que tiene el script
+            if (godModeWall != null)
+            {
+                GodModeWall gmScript = godModeWall.GetComponent<GodModeWall>();
+                if (gmScript != null)
+                {
+                    gmScript.ActivarGodModeTemporal(15f);
+                }
+            }
+
+            Destroy(other.gameObject); // Destruir el power-up tras recogerlo
         }
     }
 

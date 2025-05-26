@@ -19,6 +19,7 @@ TagManager:
   - PowerBallOn
   - ExtraBalls
   - Magnet
+  - PUgodMode
   layers:
   - Default
   - TransparentFX
