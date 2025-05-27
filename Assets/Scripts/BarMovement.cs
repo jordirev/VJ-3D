@@ -12,10 +12,10 @@ public class TreeCutMovement : MonoBehaviour
     private bool canMoveRight = true;
 
     public GameObject pistolPrefab;
-    static private string[] levels = { "Nivell1", "Nivell2", "Nivell3", "Nivell4", "Nivell5" };
-    static private int currentLevel;
 
     public GameObject prefabBall;
+
+    public GameObject nextLevelText;
 
     void Start()
     {
@@ -43,7 +43,6 @@ public class TreeCutMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
-        if (Input.anyKeyDown) changeScene();
     }
 
     void FixedUpdate()
@@ -98,6 +97,7 @@ public class TreeCutMovement : MonoBehaviour
         {
             Vector3 newScale = transform.localScale;
             newScale.x *= 1.25f;
+            newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
         }
@@ -105,14 +105,24 @@ public class TreeCutMovement : MonoBehaviour
         if (other.CompareTag("SmallArrow"))
         {
             Vector3 newScale = transform.localScale;
-            newScale.x *= 0.75f;
+            newScale.x *= 0.85f;
+            newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
         }
 
         if (other.CompareTag("NextLevel"))
         {
-            SceneManager.LoadScene("Nivell2");
+            // Mostrar el texto de "Next Level" durante 2 segundos
+            if (nextLevelText != null)
+            {
+                nextLevelText.SetActive(true);
+                Invoke("HideNextLevelText", 2f);
+            }
+            int escenaActual = SceneManager.GetActiveScene().buildIndex;
+            int totalEscenas = SceneManager.sceneCountInBuildSettings;
+            int siguienteEscena = (escenaActual + 1) % totalEscenas;
+            SceneManager.LoadScene(siguienteEscena);
             Debug.Log("PowerUp utilizado por el jugador");
         }
 
@@ -245,27 +255,5 @@ public class TreeCutMovement : MonoBehaviour
     {
         canMoveLeft = true;
         canMoveRight = true;
-    }
-
-    private void changeScene()
-    {
-        switch (true)
-        {
-            case bool _ when Input.GetKeyDown(KeyCode.Alpha1):
-                SceneManager.LoadScene("Nivell1");
-                break;
-            case bool _ when Input.GetKeyDown(KeyCode.Alpha2):
-                SceneManager.LoadScene("Nivell2");
-                break;
-            case bool _ when Input.GetKeyDown(KeyCode.Alpha3):
-                SceneManager.LoadScene("Nivell3");
-                break;
-            case bool _ when Input.GetKeyDown(KeyCode.Alpha4):
-                SceneManager.LoadScene("Nivell4");
-                break;
-            case bool _ when Input.GetKeyDown(KeyCode.Alpha5):
-                SceneManager.LoadScene("Nivell5");
-                break;
-        }
     }
 }

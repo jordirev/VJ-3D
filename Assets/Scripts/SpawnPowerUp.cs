@@ -5,39 +5,47 @@ public class SpawnPowerUp : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject[] powerUpPrefabs;
+    public GameObject cupPrefab;
 
     private float spwanProbability = 0.2f;
-    private int cantidadDeBloques, cantidadDeBloquesMax;
     bool cupAppeared = false;
 
     private void Start()
     {
-        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
-        cantidadDeBloquesMax = cantidadDeBloques;
+        ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
+        if (SceneMngr != null)
+        {
+            SceneMngr.ActivateCupPowerUp += OnActivateCupPowerUp;
+        }
     }
-    void Update()
+
+    private void OnDestroy()
     {
-        cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
+        ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
+        if (SceneMngr != null)
+        {
+            SceneMngr.ActivateCupPowerUp -= OnActivateCupPowerUp;
+        }
+    }
+
+    private void OnActivateCupPowerUp()
+    {
+        if (!cupAppeared)
+        {
+            cupAppeared = true;
+            // Puedes cambiar la posición por la que prefieras
+            Vector3 spawnPosition = transform.position + Vector3.up * 2f;
+            Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Bullet"))
         {
-            int indexPrefab = -1;
-
-            if ((float)cantidadDeBloques / cantidadDeBloquesMax <= 0.05f && !cupAppeared)
+            if (Random.value < spwanProbability)
             {
-                cupAppeared = true;
-                indexPrefab = 0; // Cup prefab
-            }
-            else if (Random.value < spwanProbability)
-            {
-                indexPrefab = Random.Range(0, powerUpPrefabs.Length);
-            }
-
-            if (indexPrefab >= 0 && indexPrefab < powerUpPrefabs.Length)
-            {
+                int indexPrefab = Random.Range(0, powerUpPrefabs.Length);
                 GameObject powerUpPrefab = powerUpPrefabs[indexPrefab];
                 Vector3 spawnPosition = collision.contacts[0].point;
                 Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity);

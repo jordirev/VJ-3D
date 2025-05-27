@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3059602602528143299}
   - component: {fileID: 8556460224771839950}
   - component: {fileID: 7810560569019045566}
+  - component: {fileID: 4442721972404975888}
   m_Layer: 0
   m_Name: Base_10
   m_TagString: Destructible
@@ -138,6 +139,29 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 122
   m_CollisionDetection: 1
+--- !u!114 &4442721972404975888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062224495308751662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs:
+  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
+  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
+  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
+  - {fileID: 138616, guid: 9747013bfc80c7648bebc0e13034f691, type: 3}
+  - {fileID: 5236371055654364939, guid: 8a0634b571b20aa409700af7df04b000, type: 3}
+  - {fileID: 139732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+  - {fileID: 182158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
+  - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
+  - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
+  cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
 --- !u!1001 &4596937310893371088
 PrefabInstance:
   m_ObjectHideFlags: 0
