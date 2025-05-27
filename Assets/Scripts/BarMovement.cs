@@ -184,8 +184,6 @@ public class TreeCutMovement : MonoBehaviour
                 }
             }
 
-            Destroy(other.gameObject);
-
             GameManager.Instance.AddPoints(1000);
         }
 
@@ -200,8 +198,6 @@ public class TreeCutMovement : MonoBehaviour
                     ballScript.isPowerBallActive = false;
                 }
             }
-
-            Destroy(other.gameObject);
 
             GameManager.Instance.AddPoints(800);
         }
@@ -231,7 +227,6 @@ public class TreeCutMovement : MonoBehaviour
                 ball1.GetComponent<Rigidbody>().linearVelocity = direccion1 * velocidad;
                 ball2.GetComponent<Rigidbody>().linearVelocity = direccion2 * velocidad;
 
-                Destroy(other.gameObject);
             }
 
             GameManager.Instance.AddPoints(1000);

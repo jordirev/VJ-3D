@@ -20,6 +20,10 @@ public class SpawnPowerUp : MonoBehaviour
         {
             SceneMngr.ActivateCupPowerUp += OnActivateCupPowerUp;
         }
+
+        // fija la y a 1.5
+        Vector3 position = transform.position;
+        position.y = 2f;
     }
 
     private void OnDestroy()
@@ -38,7 +42,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall") || collision.gameObject.CompareTag("Bullet"))
         {
             if (activateCup && !cupAppeared)
             {

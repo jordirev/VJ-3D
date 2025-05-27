@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Hearts = GameObject.FindGameObjectsWithTag("Heart");
+        System.Array.Sort(Hearts, (a, b) => string.Compare(a.name, b.name, System.StringComparison.Ordinal));
     }
 
     public IEnumerator UpdateLives(GameObject GameOverImage)
