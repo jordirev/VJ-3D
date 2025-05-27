@@ -56,7 +56,10 @@ public class BallBounce : MonoBehaviour
         ultimaVelocidad = rb.linearVelocity;
 
         GameOverImage = GameObject.FindGameObjectWithTag("GameOverText");
-        GameOverImage.SetActive(false);
+        if (GameOverImage != null)
+        {
+            GameOverImage.SetActive(false);
+        }
     }
 
     private void Awake()
@@ -76,7 +79,7 @@ public class BallBounce : MonoBehaviour
             // Esperar que el jugador pulse ESPACIO
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                isMagnetActive = false;
+            //    isMagnetActive = false;
                 isEnganchada = false;
                 transform.SetParent(null);
                 rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
