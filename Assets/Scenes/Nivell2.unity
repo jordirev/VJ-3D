@@ -821,7 +821,7 @@ MonoBehaviour:
   maxRebotesPared: 4
   factorPerturbacion: 0.3
   isPowerBallActive: 0
-  offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
+  offsetDesdePaleta: {x: -0.7, y: -0.4, z: 0.2}
 --- !u!135 &417778933
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1506,6 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  titleLvl: {fileID: 0}
+  fadeDuration: 1
 --- !u!108 &709919774
 Light:
   m_ObjectHideFlags: 0
@@ -4547,6 +4549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  titleLvl: {fileID: 0}
+  fadeDuration: 1
 --- !u!81 &1396029951
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6286,6 +6290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8a06320e5cd7243ae674ba1c099b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textosUI: []
 --- !u!1 &1851943566
 GameObject:
   m_ObjectHideFlags: 0

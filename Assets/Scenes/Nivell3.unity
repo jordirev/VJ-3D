@@ -3161,6 +3161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8a06320e5cd7243ae674ba1c099b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textosUI: []
 --- !u!1001 &330786835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3788,7 +3789,7 @@ MonoBehaviour:
   maxRebotesPared: 4
   factorPerturbacion: 0.3
   isPowerBallActive: 0
-  offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
+  offsetDesdePaleta: {x: -0.7, y: -0.4, z: 0.2}
 --- !u!135 &417778933
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6138,6 +6139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  titleLvl: {fileID: 0}
+  fadeDuration: 1
 --- !u!1001 &765840680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10300,6 +10303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  titleLvl: {fileID: 0}
+  fadeDuration: 1
 --- !u!108 &1354464034
 Light:
   m_ObjectHideFlags: 0
