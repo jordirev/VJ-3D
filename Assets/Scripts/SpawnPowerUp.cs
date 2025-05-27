@@ -20,10 +20,6 @@ public class SpawnPowerUp : MonoBehaviour
         {
             SceneMngr.ActivateCupPowerUp += OnActivateCupPowerUp;
         }
-
-        // fija la y a 1.5
-        Vector3 position = transform.position;
-        position.y = 2f;
     }
 
     private void OnDestroy()
@@ -48,6 +44,7 @@ public class SpawnPowerUp : MonoBehaviour
             {
                 cupAppeared = true;
                 Vector3 spawnPosition = collision.contacts[0].point;
+                spawnPosition.y += 0.5f; 
                 Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
             }
             else if (Random.value < spwanProbability)
@@ -55,6 +52,7 @@ public class SpawnPowerUp : MonoBehaviour
                 int indexPrefab = Random.Range(0, powerUpPrefabs.Length);
                 GameObject powerUpPrefab = powerUpPrefabs[indexPrefab];
                 Vector3 spawnPosition = collision.contacts[0].point;
+                spawnPosition.y += 0.5f;
                 Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity);
             }
 
