@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallBounce : MonoBehaviour
@@ -31,6 +32,8 @@ public class BallBounce : MonoBehaviour
     private Transform paddleTransform;
     [SerializeField] private Vector3 offsetDesdePaleta = new Vector3(-0.5f, -0.4f, 0f);
 
+    private GameObject GameOverImage;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,12 +55,19 @@ public class BallBounce : MonoBehaviour
         rb.linearVelocity = direccionInicial.normalized * velocidadInicial;
         ultimaVelocidad = rb.linearVelocity;
 
+        GameOverImage = GameObject.FindGameObjectWithTag("GameOverText");
+        GameOverImage.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        GameOverImage = GameObject.FindGameObjectWithTag("GameOverText");
+        GameOverImage.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (isEnganchada && paddleTransform != null)
         {
             // La bola sigue la paleta
@@ -129,6 +139,20 @@ public class BallBounce : MonoBehaviour
             return;
         }
 
+        if (objetoColisionado.CompareTag("Limit"))
+        {
+            Debug.Log("Bola fuera de l�mites, reiniciando posici�n");
+            if(gameObject.tag == "Ball")
+                StartCoroutine(BallFallen());
+            else if (gameObject.tag == "ExtraBall")
+                Destroy(gameObject); 
+            
+            if(GameManager.Instance.vidas == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
         float velocidad = ultimaVelocidad.magnitude;
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
         rb.linearVelocity = direccion * Mathf.Max(velocidad, 0f);
@@ -192,5 +216,11 @@ public class BallBounce : MonoBehaviour
     {
         isMagnetActive = true;
         paddleTransform = paddle;
+    }
+
+    private IEnumerator BallFallen()
+    {
+        if (GameManager.Instance.vidas != 0) transform.position = new Vector3(5f, 1f, 0f);
+        yield return StartCoroutine(GameManager.Instance.UpdateLives(GameOverImage));
     }
 }

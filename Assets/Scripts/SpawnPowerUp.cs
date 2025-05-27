@@ -7,8 +7,11 @@ public class SpawnPowerUp : MonoBehaviour
     public GameObject[] powerUpPrefabs;
     public GameObject cupPrefab;
 
-    private float spwanProbability = 0.2f;
+    bool activateCup = false;
     bool cupAppeared = false;
+
+    private float spwanProbability = 0.2f;
+   
 
     private void Start()
     {
@@ -30,20 +33,20 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void OnActivateCupPowerUp()
     {
-        if (!cupAppeared)
-        {
-            cupAppeared = true;
-            // Puedes cambiar la posición por la que prefieras
-            Vector3 spawnPosition = transform.position + Vector3.up * 2f;
-            Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
-        }
+        if (!cupAppeared) activateCup = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Bullet"))
         {
-            if (Random.value < spwanProbability)
+            if (activateCup && !cupAppeared)
+            {
+                cupAppeared = true;
+                Vector3 spawnPosition = collision.contacts[0].point;
+                Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
+            }
+            else if (Random.value < spwanProbability)
             {
                 int indexPrefab = Random.Range(0, powerUpPrefabs.Length);
                 GameObject powerUpPrefab = powerUpPrefabs[indexPrefab];

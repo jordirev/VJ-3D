@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class TreeCutMovement : MonoBehaviour
     public float speed = 5f;
     private Rigidbody rb;
     private float moveInput;
+    private float duracionFade = 1.0f;
 
     private bool canMoveLeft = true;  //canviar els dos a false
     private bool canMoveRight = true;
@@ -15,7 +17,14 @@ public class TreeCutMovement : MonoBehaviour
 
     public GameObject prefabBall;
 
-    public GameObject nextLevelText;
+    public GameObject nextLevelImage;
+
+    private GameObject gameManager;
+
+    private void Awake()
+    {
+        nextLevelImage.SetActive(false);
+    }
 
     void Start()
     {
@@ -27,6 +36,8 @@ public class TreeCutMovement : MonoBehaviour
         {
             cam.OnRotationComplete += EnableMovement;
         }*/
+
+        gameManager = GameObject.Find("GameManager");
 
         if (rb == null)
         {
@@ -113,16 +124,7 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("NextLevel"))
         {
-            // Mostrar el texto de "Next Level" durante 2 segundos
-            if (nextLevelText != null)
-            {
-                nextLevelText.SetActive(true);
-                Invoke("HideNextLevelText", 2f);
-            }
-            int escenaActual = SceneManager.GetActiveScene().buildIndex;
-            int totalEscenas = SceneManager.sceneCountInBuildSettings;
-            int siguienteEscena = (escenaActual + 1) % totalEscenas;
-            SceneManager.LoadScene(siguienteEscena);
+            StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
             Debug.Log("PowerUp utilizado por el jugador");
         }
 
@@ -200,7 +202,9 @@ public class TreeCutMovement : MonoBehaviour
                 Vector3 spawnPosition = mainBall.transform.position;
 
                 GameObject ball1 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
+                ball1.tag = "ExtraBall";
                 GameObject ball2 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
+                ball2.tag = "ExtraBall";
                 Debug.Log("Aparecen extra balls");
 
                 Rigidbody mainRb = mainBall.GetComponent<Rigidbody>();
@@ -249,6 +253,42 @@ public class TreeCutMovement : MonoBehaviour
 
             Destroy(other.gameObject); // Destruir el power-up tras recogerlo
         }
+
+        if (other.CompareTag("1UP"))
+        {
+            GameManager.Instance.GainLife();
+        }
+    }
+
+    private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
+    {
+        if (text != null)
+        {
+            text.SetActive(true);
+            yield return StartCoroutine(FadeIn(text));
+            yield return new WaitForSeconds(4f);
+            text.SetActive(false);
+        }
+        int escenaActual = SceneManager.GetActiveScene().buildIndex;
+        int totalEscenas = SceneManager.sceneCountInBuildSettings;
+        int siguienteEscena = (escenaActual + 1) % totalEscenas;
+        SceneManager.LoadScene(siguienteEscena);
+    }
+
+    private System.Collections.IEnumerator FadeIn(GameObject foto)
+    {
+        var canvasGroup = foto.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            yield break;
+
+        float elapsed = 0f;
+        while (elapsed < duracionFade)
+        {
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duracionFade);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 1f;
     }
 
     public void EnableMovement()
