@@ -2469,7 +2469,7 @@ MonoBehaviour:
   maxRebotesPared: 4
   factorPerturbacion: 0.3
   isPowerBallActive: 0
-  offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
+  offsetDesdePaleta: {x: -0.7, y: -0.4, z: 0.2}
 --- !u!135 &417778933
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -111,6 +111,8 @@ public class TreeCutMovement : MonoBehaviour
             newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
+
+            GameManager.Instance.AddPoints(800);
         }
 
         if (other.CompareTag("SmallArrow"))
@@ -120,12 +122,16 @@ public class TreeCutMovement : MonoBehaviour
             newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
             transform.localScale = newScale;
             Debug.Log("PowerUp utilizado por el jugador");
+
+            GameManager.Instance.AddPoints(800);
         }
 
         if (other.CompareTag("NextLevel"))
         {
             StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
             Debug.Log("PowerUp utilizado por el jugador");
+
+            GameManager.Instance.AddPoints(1000);
         }
 
         if (other.CompareTag("Pistols"))
@@ -162,6 +168,8 @@ public class TreeCutMovement : MonoBehaviour
                 Destroy(pistol2, 10000); // CAAAAAAAAAAAAAAAAAAAANVIAR A 20 
                 Debug.Log("PowerUp utilizado por el jugador");
             }
+
+            GameManager.Instance.AddPoints(800);
         }
 
         if (other.CompareTag("PowerBallOn"))
@@ -177,6 +185,8 @@ public class TreeCutMovement : MonoBehaviour
             }
 
             Destroy(other.gameObject);
+
+            GameManager.Instance.AddPoints(1000);
         }
 
         if (other.CompareTag("PowerBallOff"))
@@ -192,6 +202,8 @@ public class TreeCutMovement : MonoBehaviour
             }
 
             Destroy(other.gameObject);
+
+            GameManager.Instance.AddPoints(800);
         }
 
         if (other.CompareTag("ExtraBalls"))
@@ -221,6 +233,8 @@ public class TreeCutMovement : MonoBehaviour
 
                 Destroy(other.gameObject);
             }
+
+            GameManager.Instance.AddPoints(1000);
         }
 
         if (other.CompareTag("Magnet"))
@@ -237,11 +251,13 @@ public class TreeCutMovement : MonoBehaviour
             }
 
             Destroy(other.gameObject);
+
+            GameManager.Instance.AddPoints(1000);
         }
 
         if (other.CompareTag("PUgodMode"))
         {
-            GameObject godModeWall = GameObject.Find("GameManager"); // Cambia por el nombre real del GameObject que tiene el script
+            GameObject godModeWall = GameObject.Find("GameManager"); 
             if (godModeWall != null)
             {
                 GodModeWall gmScript = godModeWall.GetComponent<GodModeWall>();
@@ -251,7 +267,9 @@ public class TreeCutMovement : MonoBehaviour
                 }
             }
 
-            Destroy(other.gameObject); // Destruir el power-up tras recogerlo
+            Destroy(other.gameObject);
+
+            GameManager.Instance.AddPoints(1000);
         }
 
         if (other.CompareTag("1UP"))
