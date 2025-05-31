@@ -9,6 +9,7 @@ public class GodModeWall : MonoBehaviour
     public TextMeshProUGUI TempoGodMode;
 
     private bool isGodModeActive = false;
+    private bool temporizador = false;
     private Coroutine godModeCoroutine;
 
 
@@ -33,7 +34,8 @@ public class GodModeWall : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            isGodModeActive = !isGodModeActive;
+            if (temporizador) temporizador = false;
+            else isGodModeActive = !isGodModeActive;
 
             if (GodMode != null) GodMode.SetActive(isGodModeActive);          
 
@@ -57,6 +59,7 @@ public class GodModeWall : MonoBehaviour
     private IEnumerator GodModeConTemporizador(float segundos)
     {
         isGodModeActive = true;
+        temporizador = true;
 
         if (GodMode != null) GodMode.SetActive(true);
         if (godModeText != null) godModeText.gameObject.SetActive(true);
@@ -75,11 +78,17 @@ public class GodModeWall : MonoBehaviour
         }
 
         isGodModeActive = false;
+        temporizador = false;
 
         if (GodMode != null) GodMode.SetActive(false);
         if (godModeText != null) godModeText.gameObject.SetActive(false);
         if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false);
 
         godModeCoroutine = null;
+    }
+
+    public bool IsGodModeActive
+    {
+        get { return isGodModeActive; }
     }
 }

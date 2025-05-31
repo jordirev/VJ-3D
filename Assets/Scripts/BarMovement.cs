@@ -254,7 +254,7 @@ public class TreeCutMovement : MonoBehaviour
                 GodModeWall gmScript = godModeWall.GetComponent<GodModeWall>();
                 if (gmScript != null)
                 {
-                    gmScript.ActivarGodModeTemporal(15f);
+                    if (!gmScript.IsGodModeActive) gmScript.ActivarGodModeTemporal(15f);
                 }
             }
 
