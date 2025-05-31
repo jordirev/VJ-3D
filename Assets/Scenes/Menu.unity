@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1417,8 +1417,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+    m_HighlightedColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+    m_PressedColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.31
@@ -1450,7 +1450,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: OnPlayButtonClicked
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &853954607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a913f2db596c1ce44883f4086abc80a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 853954606}
 --- !u!1001 &865066389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3251,6 +3252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a913f2db596c1ce44883f4086abc80a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 0}
 --- !u!4 &1653009015
 Transform:
   m_ObjectHideFlags: 0
@@ -4690,7 +4692,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: campfire
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1664441341582974098, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 7713404491655485480, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 4402283877746686681, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 1079038740936791988, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2007144003862418026, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5962033486627134051, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2769294745745812621, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5696174567970376808, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5941028675556930435, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 6970835540589104680, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2067061990978439826, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5385219616777267299, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 8745336738551973134, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 7817940810849714384, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2673252204690311385, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5893711694184889911, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 4082735156522213074, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2726629902224105785, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 258732692364686094, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 9189023375755671476, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 2996707170662176069, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 1907266278444660776, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 1104703805115350518, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5058414610001868287, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 3666209860919395089, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 6594004331070448628, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
+    - {fileID: 5115168395034139679, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3413575039680449531, guid: e30f5efd2db9be14287c3cd92eccf8dc, type: 3}

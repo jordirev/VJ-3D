@@ -1,5 +1,5 @@
 using UnityEngine;
-using System;
+using UnityEngine.UI; // O TMPro si usas TextMeshPro
 
 public class CameraMovement : MonoBehaviour
 {
@@ -7,28 +7,22 @@ public class CameraMovement : MonoBehaviour
     private float accumulatedAngle = 0f;
     private bool hasStartedGame = false;
 
-    public GameObject titleLvl;
-    public float fadeDuration = 1f; // Duración del fade en segundos
+    public GameObject mensajeTexto;
+    public float duracionFade = 1f;
+    public float tiempoVisible = 2f;
 
     // Evento que se dispara al terminar la vuelta
-    public event Action OnRotationComplete;
+    public event System.Action OnRotationComplete;
 
-    private CanvasGroup titleCanvasGroup;
-    private bool isFadingIn = false;
-    private bool isFadingOut = false;
-    private float fadeTimer = 0f;
+    private bool textoMostrado = false;
+    private Coroutine fadeCoroutine;
 
-    void Start()
+    private void Start()
     {
-        if (titleLvl != null)
+        // Asegúrate de que el texto esté oculto al inicio
+        if (mensajeTexto != null)
         {
-            titleCanvasGroup = titleLvl.GetComponent<CanvasGroup>();
-            if (titleCanvasGroup == null)
-                titleCanvasGroup = titleLvl.AddComponent<CanvasGroup>();
-            titleCanvasGroup.alpha = 0f;
-            titleLvl.SetActive(true);
-            isFadingIn = true;
-            fadeTimer = 0f;
+            mensajeTexto.SetActive(false);
         }
     }
 
@@ -41,36 +35,65 @@ public class CameraMovement : MonoBehaviour
             accumulatedAngle += angle;
             transform.LookAt(Vector3.zero);
 
-            if (isFadingIn)
+            // Inicia el fade in solo una vez al principio
+            if (!textoMostrado)
             {
-                fadeTimer += Time.deltaTime;
-                float t = Mathf.Clamp01(fadeTimer / fadeDuration);
-                titleCanvasGroup.alpha = t;
-                if (t >= 1f)
-                {
-                    isFadingIn = false;
-                }
+                textoMostrado = true;
+                fadeCoroutine = StartCoroutine(FadeInTexto());
             }
 
-            if (accumulatedAngle >= 360f && !isFadingOut)
+            // Calcula cuándo empezar el fade out (antes de terminar la vuelta)
+            if (textoMostrado && fadeCoroutine != null && accumulatedAngle >= 360f - (duracionFade * rotationSpeed / 2f))
+            {
+                // Inicia el fade out si aún no ha empezado
+                StopCoroutine(fadeCoroutine);
+                fadeCoroutine = StartCoroutine(FadeOutTexto());
+                textoMostrado = false; // Para que no vuelva a intentar el fade out
+            }
+
+            if (accumulatedAngle >= 360f)
             {
                 hasStartedGame = true;
-                isFadingOut = true;
-                fadeTimer = 0f;
-            }
-        }
-
-        if (isFadingOut && titleCanvasGroup != null)
-        {
-            fadeTimer += Time.deltaTime;
-            float t = Mathf.Clamp01(fadeTimer / fadeDuration);
-            titleCanvasGroup.alpha = 1f - t;
-            if (t >= 1f)
-            {
-                isFadingOut = false;
-                titleLvl.SetActive(false);
                 OnRotationComplete?.Invoke(); // Lanza el callback
             }
         }
+    }
+
+    private System.Collections.IEnumerator FadeInTexto()
+    {
+        if (mensajeTexto == null) yield break;
+
+        mensajeTexto.SetActive(true);
+        var canvasGroup = mensajeTexto.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = mensajeTexto.AddComponent<CanvasGroup>();
+
+        float elapsed = 0f;
+        while (elapsed < duracionFade)
+        {
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duracionFade);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 1f;
+    }
+
+    private System.Collections.IEnumerator FadeOutTexto()
+    {
+        if (mensajeTexto == null) yield break;
+
+        var canvasGroup = mensajeTexto.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            yield break;
+
+        float elapsed = 0f;
+        while (elapsed < duracionFade)
+        {
+            canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsed / duracionFade);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 0f;
+        mensajeTexto.SetActive(false);
     }
 }

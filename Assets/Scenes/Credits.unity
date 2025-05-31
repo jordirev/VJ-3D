@@ -1009,6 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a913f2db596c1ce44883f4086abc80a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 636900180}
 --- !u!114 &636900180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,6 +2326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a913f2db596c1ce44883f4086abc80a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 0}
 --- !u!4 &1105692755
 Transform:
   m_ObjectHideFlags: 0

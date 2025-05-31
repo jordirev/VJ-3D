@@ -2,16 +2,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using System.Runtime.ExceptionServices;
 
 public class ScenesManager : MonoBehaviour
 {
     private int cantidadDeBloques, cantidadDeBloquesMax;
+    private float duracionFade = 1.0f;
     bool eventTriggered = false;
 
     public event Action ActivateCupPowerUp;
 
     // Referencia al array de Texts
-    public GameObject[] textosUI;
+    public GameObject nextLevelImage;
 
     [Header("Música de Fondo")]
     [SerializeField] private AudioClip musicaFondo; 
@@ -84,6 +86,13 @@ public class ScenesManager : MonoBehaviour
             audioSource.Play();
             estaEnNivel = true;
         }
+
+        nextLevelImage.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        nextLevelImage.SetActive(false);
     }
 
     void Update()
@@ -91,19 +100,14 @@ public class ScenesManager : MonoBehaviour
         if (Input.anyKeyDown) changeScene();
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
 
-        if ((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 0.05f && !eventTriggered)
+        if ((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 5f && !eventTriggered)
         {
             eventTriggered = true;
             ActivateCupPowerUp?.Invoke();
-            StartCoroutine(MostrarTextoPorTiempo(0, 4f));
         }
         else if (cantidadDeBloques <= 0)
         {
-            StartCoroutine(MostrarTextoPorTiempo(1, 4f));
-            int escenaActual = SceneManager.GetActiveScene().buildIndex;
-            int totalEscenas = SceneManager.sceneCountInBuildSettings;
-            int siguienteEscena = (escenaActual + 1) % totalEscenas;
-            SceneManager.LoadScene(siguienteEscena);
+            StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
         }
     }
 
@@ -126,53 +130,37 @@ public class ScenesManager : MonoBehaviour
             case bool _ when Input.GetKeyDown(KeyCode.Alpha5):
                 SceneManager.LoadScene("Nivell5");
                 break;
+            case bool _ when Input.GetKeyDown(KeyCode.H):
+                GameManager.Instance.vidas = 3;
+                break;
         }
     }
 
-    private IEnumerator MostrarTextoPorTiempo(int indice, float segundos)
+    private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
     {
-        if (textosUI != null && textosUI.Length > indice && textosUI[indice] != null)
+        text.SetActive(true);
+        yield return StartCoroutine(FadeIn(text));
+        yield return new WaitForSeconds(4f);
+        text.SetActive(false);
+        int escenaActual = SceneManager.GetActiveScene().buildIndex;
+        int totalEscenas = SceneManager.sceneCountInBuildSettings;
+        int siguienteEscena = (escenaActual + 1);
+        SceneManager.LoadScene(siguienteEscena);
+    }
+
+    private System.Collections.IEnumerator FadeIn(GameObject foto)
+    {
+        var canvasGroup = foto.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            yield break;
+
+        float elapsed = 0f;
+        while (elapsed < duracionFade)
         {
-            var textComponent = textosUI[indice].GetComponent<UnityEngine.UI.Text>();
-            if (textComponent != null)
-            {
-                // Aumentar alfa (fade in)
-                float fadeInTime = 1f;
-                float fadeOutTime = 1f;
-                float visibleTime = Mathf.Max(0, segundos - fadeInTime - fadeOutTime);
-                Color originalColor = textComponent.color;
-                Color color = originalColor;
-                color.a = 0f;
-                textComponent.color = color;
-                textComponent.enabled = true;
-
-                float t = 0f;
-                while (t < fadeInTime)
-                {
-                    t += Time.deltaTime;
-                    color.a = Mathf.Clamp01(t / fadeInTime);
-                    textComponent.color = color;
-                    yield return null;
-                }
-                color.a = 1f;
-                textComponent.color = color;
-
-                // Mantener visible
-                yield return new WaitForSeconds(visibleTime);
-
-                // Disminuir alfa (fade out)
-                t = 0f;
-                while (t < fadeOutTime)
-                {
-                    t += Time.deltaTime;
-                    color.a = Mathf.Clamp01(1f - (t / fadeOutTime));
-                    textComponent.color = color;
-                    yield return null;
-                }
-                color.a = 0f;
-                textComponent.color = color;
-                textComponent.enabled = false;
-            }
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duracionFade);
+            elapsed += Time.deltaTime;
+            yield return null;
         }
+        canvasGroup.alpha = 1f;
     }
 }

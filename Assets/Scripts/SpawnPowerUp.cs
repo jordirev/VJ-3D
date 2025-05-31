@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class SpawnPowerUp : MonoBehaviour
 {
-    public static GameManager Instance;
     public GameObject[] powerUpPrefabs;
     public GameObject cupPrefab;
 
+    bool activateCup = false;
     [Header("Efectos de Destrucción")]
     public GameObject efectoDesintegracionPrefab; // Prefab con el efecto de desintegración
     public float duracionEfectoDesintegracion = 1.5f;
 
     private float spwanProbability = 0.2f;
+
     bool cupAppeared = false;
+
+    private float spwanProbability = 0.2f;
+   
 
     private void Start()
     {
@@ -34,18 +38,12 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void OnActivateCupPowerUp()
     {
-        if (!cupAppeared)
-        {
-            cupAppeared = true;
-            // Puedes cambiar la posición por la que prefieras
-            Vector3 spawnPosition = transform.position + Vector3.up * 2f;
-            Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
-        }
+        if (!cupAppeared) activateCup = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall") || collision.gameObject.CompareTag("Bullet"))
         {
 
             Vector3 posicion = transform.position;
@@ -68,11 +66,19 @@ public class SpawnPowerUp : MonoBehaviour
                 Destroy(efectoInstancia, (duracionEfectoDesintegracion - 1f));
             }
 
-            if (Random.value < spwanProbability)
+            if (activateCup && !cupAppeared)
+            {
+                cupAppeared = true;
+                Vector3 spawnPosition = collision.contacts[0].point;
+                spawnPosition.y += 0.5f;
+                Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
+            }
+            else if (Random.value < spwanProbability)
             {
                 int indexPrefab = Random.Range(0, powerUpPrefabs.Length);
                 GameObject powerUpPrefab = powerUpPrefabs[indexPrefab];
                 Vector3 spawnPosition = collision.contacts[0].point;
+                spawnPosition.y += 0.5f;
                 Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity);
             }
 

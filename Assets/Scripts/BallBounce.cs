@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallBounce : MonoBehaviour
@@ -35,10 +36,12 @@ public class BallBounce : MonoBehaviour
     private Vector3 ultimaNormalPared = Vector3.zero;
     public bool isPowerBallActive = false;
     private bool isMagnetActive = false;
-    private bool isEnganchada = false;  
+    private bool isEnganchada = false;
     private Transform paddleTransform;
     [SerializeField] private Vector3 offsetDesdePaleta = new Vector3(-0.5f, -0.4f, 0f);
     private AudioSource audioSource;
+
+    private GameObject GameOverImage;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -68,12 +71,22 @@ public class BallBounce : MonoBehaviour
         rb.linearVelocity = direccionInicial.normalized * velocidadInicial;
         ultimaVelocidad = rb.linearVelocity;
 
+        GameOverImage = GameObject.FindGameObjectWithTag("GameOverText");
+        if (GameOverImage != null)
+        {
+            GameOverImage.SetActive(false);
+        }
+    }
+
+    private void Awake()
+    {
+        GameOverImage = GameObject.FindGameObjectWithTag("GameOverText");
+        GameOverImage.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (isEnganchada && paddleTransform != null)
         {
             // La bola sigue la paleta
@@ -82,7 +95,7 @@ public class BallBounce : MonoBehaviour
             // Esperar que el jugador pulse ESPACIO
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                isMagnetActive = false;
+                //    isMagnetActive = false;
                 isEnganchada = false;
                 transform.SetParent(null);
                 rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
@@ -153,7 +166,20 @@ public class BallBounce : MonoBehaviour
                 return;
             }
         }
-        
+
+        if (objetoColisionado.CompareTag("Limit"))
+        {
+            Debug.Log("Bola fuera de l�mites, reiniciando posici�n");
+            if (gameObject.tag == "Ball")
+                BallFallen();
+            else if (gameObject.tag == "ExtraBall")
+                Destroy(gameObject);
+
+            if (GameManager.Instance.vidas == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 
         float velocidad = ultimaVelocidad.magnitude;
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
@@ -194,7 +220,7 @@ public class BallBounce : MonoBehaviour
         // Aplicar la nueva velocidad
         rb.linearVelocity = direccionRebote * Mathf.Max(velocidad, velocidadInicial);
     }
-  
+
     private Vector3 PerturbacionAngulo(Vector3 direccion)
     {
         // Crear un vector de perturbación que modifica la dirección original
@@ -216,6 +242,16 @@ public class BallBounce : MonoBehaviour
     {
         isMagnetActive = true;
         paddleTransform = paddle;
+    }
+
+    private void BallFallen()
+    {
+        if (GameManager.Instance.vidas != 0)
+        {
+            transform.position = new Vector3(5f, 1f, 0f);
+            rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
+        }
+        GameManager.Instance.LoseLife();
     }
 
     private void ReproducirSonidoRebote()
