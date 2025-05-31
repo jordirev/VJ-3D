@@ -223,7 +223,11 @@ public class BallBounce : MonoBehaviour
 
     private void BallFallen()
     {
-        if (GameManager.Instance.vidas != 0) transform.position = new Vector3(5f, 1f, 0f);
+        if (GameManager.Instance.vidas != 0)
+        {
+            transform.position = new Vector3(5f, 1f, 0f);
+            rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
+        }
         GameManager.Instance.LoseLife();
     }
 }
