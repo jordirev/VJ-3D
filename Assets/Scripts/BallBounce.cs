@@ -71,21 +71,31 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isEnganchada && paddleTransform != null)
+        if (isEnganchada)
         {
             // La bola sigue la paleta
             transform.position = paddleTransform.position + offsetDesdePaleta;
 
+            // Desactivar física y colisiones mientras está enganchada
+            rb.isKinematic = true;
+            GetComponent<Collider>().enabled = false;
+
             // Esperar que el jugador pulse ESPACIO
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //    isMagnetActive = false;
                 isEnganchada = false;
-                transform.SetParent(null);
+                rb.isKinematic = false;
+                GetComponent<Collider>().enabled = true;
                 rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
             }
 
             return; // no aplicar lógica normal mientras esté enganchada
+        }
+        else
+        {
+            // Asegurarse de que la física y colisiones estén activadas cuando no está enganchada
+            rb.isKinematic = false;
+            GetComponent<Collider>().enabled = true;
         }
 
 
@@ -107,6 +117,7 @@ public class BallBounce : MonoBehaviour
     // Se llama cuando hay una colisi�n
     private void OnCollisionEnter(Collision collision)
     {
+        if (isEnganchada) return;
 
         GameObject objetoColisionado = collision.gameObject;
 
@@ -118,12 +129,68 @@ public class BallBounce : MonoBehaviour
 
             if (isMagnetActive && !isEnganchada)
             {
-                // Engancha la bola a la barra, pero no la lanza
                 rb.linearVelocity = Vector3.zero;
                 transform.position = paddleTransform.position + offsetDesdePaleta;
-                transform.SetParent(paddleTransform);
+                // NO usar SetParent aquí
                 isEnganchada = true;
                 Debug.Log("¡Bola enganchada a la barra por imán!");
+                return;
+            }
+
+            // Calcular la nueva dirección de rebote
+            // Obtener la posición de contacto y la posición de la barra
+
+
+            ContactPoint contacto = collision.contacts[0];
+            float anchoBarra = objetoColisionado.GetComponent<Collider>().bounds.size.x;
+            float posicionRelativa = (contacto.point.x - objetoColisionado.transform.position.x) / (anchoBarra / 2f);
+
+            if (Mathf.Abs(contacto.normal.x) > 0.9f)
+            {
+                // Forzar la dirección hacia la izquierda (eje -X) con un ángulo aleatorio más exagerado
+                float anguloDesvio = Random.Range(-60f, 60f) * Mathf.Deg2Rad; // Desviación de hasta 60 grados
+                Vector3 direccionRebote = new Vector3(
+                    -Mathf.Cos(anguloDesvio), // Principalmente hacia la izquierda en X (signo negativo)
+                    Mathf.Sin(anguloDesvio),  // Variación más grande en Y
+                    0f                        // Sin componente Z para evitar rebote en profundidad
+                );
+
+                // Mantener la velocidad actual
+                rb.linearVelocity = direccionRebote.normalized * ultimaVelocidad.magnitude;
+            }
+            else
+            {
+                float anguloRebote = 0;
+
+                // Limitar el valor entre -1 y 1
+                posicionRelativa = Mathf.Clamp(posicionRelativa, -1f, 1f);
+
+                // Definir el ángulo máximo (en radianes)
+                float anguloMaximo = 180f * Mathf.Deg2Rad;
+
+                // Determinar región de impacto
+                if (posicionRelativa < -0.33f) // izquierda
+                {
+                    anguloRebote = -anguloMaximo; // Rebote fuerte hacia la izquierda
+                }
+                else if (posicionRelativa > 0.33f) // derecha
+                {
+                    anguloRebote = anguloMaximo; // Rebote fuerte hacia la derecha
+                }
+                else // centro
+                {
+                    anguloRebote = 0f; // Rebote casi recto
+                }
+
+                // Calcular nueva dirección (plano YZ, X constante)
+                Vector3 nuevaDireccion = new Vector3(
+                    -1f,                        // Movimiento horizontal (constante)
+                    Mathf.Sin(anguloRebote),   // Altura
+                    Mathf.Cos(anguloRebote)    // Profundidad
+                );
+
+                // Aplicar velocidad manteniendo la magnitud
+                rb.linearVelocity = nuevaDireccion.normalized * ultimaVelocidad.magnitude;
             }
         }
 
@@ -145,8 +212,7 @@ public class BallBounce : MonoBehaviour
         if (objetoColisionado.CompareTag("Limit"))
         {
             Debug.Log("Bola fuera de l�mites, reiniciando posici�n");
-            if (gameObject.tag == "Ball")
-                BallFallen();
+            if (gameObject.tag == "Ball") BallFallen();
             else if (gameObject.tag == "ExtraBall")
                 Destroy(gameObject);
 
