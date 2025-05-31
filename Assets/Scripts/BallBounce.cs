@@ -20,6 +20,14 @@ public class BallBounce : MonoBehaviour
     [SerializeField] private int maxRebotesPared = 4; // Número máximo de rebotes en pared consecutivos
     [SerializeField] private float factorPerturbacion = 0.3f; // Factor de perturbación del ángulo
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip sonidoReboteBarra;
+    [SerializeField] private float volumenSonido = 1.0f;
+    [SerializeField] private AudioClip sonidoDestruir;
+    [SerializeField] private float volumenSonido2 = 1.0f;
+    [SerializeField] private AudioClip sonidoPared;
+    [SerializeField] private float volumenSonido3 = 1.0f;
+
 
     private Rigidbody rb;
     private Vector3 ultimaVelocidad;
@@ -30,6 +38,7 @@ public class BallBounce : MonoBehaviour
     private bool isEnganchada = false;  
     private Transform paddleTransform;
     [SerializeField] private Vector3 offsetDesdePaleta = new Vector3(-0.5f, -0.4f, 0f);
+    private AudioSource audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +51,13 @@ public class BallBounce : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody>();
 
+        }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
         }
 
         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
@@ -103,6 +119,8 @@ public class BallBounce : MonoBehaviour
             Debug.Log("Choca barra");
             Debug.Log("Contador rebotes reiniciado por golpe a barra");
 
+            ReproducirSonidoRebote();
+
             if (isMagnetActive && !isEnganchada)
             {
                 // Engancha la bola a la barra, pero no la lanza
@@ -117,24 +135,32 @@ public class BallBounce : MonoBehaviour
         // Verificar si colisionó con una pared
         if (objetoColisionado.CompareTag(tagPared))
         {
-            ManejarRebotePared(collision);
+            ReproducirSonidoPared();
+            Debug.Log("toca pared");
+            ManejarReboteInfinitoPared(collision);
             return;
         }
 
-        //PowerBall
-        if (isPowerBallActive && collision.gameObject.CompareTag("Destructible"))
+        if (collision.gameObject.CompareTag("Destructible"))
         {
-            // Evitar rebote artificialmente: forzamos que no cambie la dirección
-            Debug.Log("entra en PowerBall de BallBounce");
-            return;
+            ReproducirSonidoDestruir();
+
+            //PowerBall
+            if (isPowerBallActive)
+            {
+                // Evitar rebote artificialmente: forzamos que no cambie la dirección
+                Debug.Log("entra en PowerBall de BallBounce");
+                return;
+            }
         }
+        
 
         float velocidad = ultimaVelocidad.magnitude;
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
         rb.linearVelocity = direccion * Mathf.Max(velocidad, 0f);
     }
   
-    private void ManejarRebotePared(Collision collision)
+    private void ManejarReboteInfinitoPared(Collision collision)
     {
         // Incrementar contador de rebotes en pared
         contadorRebotesPared++;
@@ -167,8 +193,6 @@ public class BallBounce : MonoBehaviour
 
         // Aplicar la nueva velocidad
         rb.linearVelocity = direccionRebote * Mathf.Max(velocidad, velocidadInicial);
-
-        Debug.Log($"Rebote en pared #{contadorRebotesPared}, Dirección: {direccionRebote}");
     }
   
     private Vector3 PerturbacionAngulo(Vector3 direccion)
@@ -192,5 +216,44 @@ public class BallBounce : MonoBehaviour
     {
         isMagnetActive = true;
         paddleTransform = paddle;
+    }
+
+    private void ReproducirSonidoRebote()
+    {
+        if (sonidoReboteBarra != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonido;
+            audioSource.PlayOneShot(sonidoReboteBarra);
+        }
+        else
+        {
+            Debug.LogWarning("Error sonido choque pelota-barra");
+        }
+    }
+
+    private void ReproducirSonidoDestruir()
+    {
+        if (sonidoDestruir != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonido2;
+            audioSource.PlayOneShot(sonidoDestruir);
+        }
+        else
+        {
+            Debug.LogWarning("Error sonido");
+        }
+    }
+
+    private void ReproducirSonidoPared()
+    {
+        if (sonidoPared != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonido3;
+            audioSource.PlayOneShot(sonidoPared);
+        }
+        else
+        {
+            Debug.LogWarning("Error sonido");
+        }
     }
 }

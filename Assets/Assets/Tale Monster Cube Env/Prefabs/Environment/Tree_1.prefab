@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4975891821768295251}
   - component: {fileID: 7486136372630720855}
   - component: {fileID: 3798598967187462076}
+  - component: {fileID: 5125178795485024878}
   m_Layer: 0
   m_Name: Tree_1
   m_TagString: Destructible
@@ -110,3 +111,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 518f2e9e6d7be56469c466ee817efa65, type: 2}
+--- !u!114 &5125178795485024878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152794974198739282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs:
+  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
+  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
+  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
+  - {fileID: 138616, guid: 9747013bfc80c7648bebc0e13034f691, type: 3}
+  - {fileID: 5236371055654364939, guid: 8a0634b571b20aa409700af7df04b000, type: 3}
+  - {fileID: 139732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+  - {fileID: 182158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
+  - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
+  - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
+  cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: 81a091cc67b1d4e4cb307c7d5e9a6299, type: 3}
+  duracionEfectoDesintegracion: 1.5

@@ -13,10 +13,77 @@ public class ScenesManager : MonoBehaviour
     // Referencia al array de Texts
     public GameObject[] textosUI;
 
-    void Start()
+    [Header("Música de Fondo")]
+    [SerializeField] private AudioClip musicaFondo; 
+    [SerializeField] private float volumenMusica = 0.5f;
+    private AudioSource audioSource;
+    private bool estaEnNivel = false;
+
+
+    void Awake()
+    {
+        // Verificar si existe un AudioSource, si no, crearlo
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Configurar el AudioSource
+        audioSource.clip = musicaFondo;
+        audioSource.loop = true;
+        audioSource.volume = volumenMusica;
+        audioSource.playOnAwake = false; // No reproducir automáticamente
+
+        // Suscribirse al evento de cambio de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    /*void OnDestroy()
+    {
+        // Desuscribirse del evento al destruir el objeto
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
+        if (SceneMngr != null)
+        {
+            SceneMngr.ActivateCupPowerUp -= OnActivateCupPowerUp;
+        }
+    }*/
+
+    // Este método se llama cada vez que se carga una escena
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Verificar si es un nivel (1-5) o el menú
+        string nombreEscena = scene.name;
+        bool esNivel = nombreEscena.StartsWith("Nivell");
+
+        if (esNivel && !audioSource.isPlaying)
+        {
+            // Si es un nivel y la música no está sonando, iniciarla
+            audioSource.Play();
+            estaEnNivel = true;
+        }
+        else if (!esNivel && estaEnNivel)
+        {
+            // Si no es un nivel y estábamos en un nivel, detener la música
+            audioSource.Stop();
+            estaEnNivel = false;
+        }
+    }
+
+        void Start()
     {
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
         cantidadDeBloquesMax = cantidadDeBloques;
+
+        // Verificar si ya estamos en un nivel al iniciar
+        string nombreEscenaActual = SceneManager.GetActiveScene().name;
+        if (nombreEscenaActual.StartsWith("Nivell") && !audioSource.isPlaying && musicaFondo != null)
+        {
+            audioSource.Play();
+            estaEnNivel = true;
+        }
     }
 
     void Update()
