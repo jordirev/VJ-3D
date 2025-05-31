@@ -62,21 +62,21 @@ public class ScenesManager : MonoBehaviour
             case bool _ when Input.GetKeyDown(KeyCode.Alpha5):
                 SceneManager.LoadScene("Nivell5");
                 break;
+            case bool _ when Input.GetKeyDown(KeyCode.H):
+                GameManager.Instance.vidas = 3;
+                break;
         }
     }
 
     private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
     {
-        if (text != null)
-        {
-            text.SetActive(true);
-            yield return StartCoroutine(FadeIn(text));
-            yield return new WaitForSeconds(4f);
-            text.SetActive(false);
-        }
+        text.SetActive(true);
+        yield return StartCoroutine(FadeIn(text));
+        yield return new WaitForSeconds(4f);
+        text.SetActive(false);
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int totalEscenas = SceneManager.sceneCountInBuildSettings;
-        int siguienteEscena = (escenaActual + 1) % totalEscenas; 
+        int siguienteEscena = (escenaActual + 1);
         SceneManager.LoadScene(siguienteEscena);
     }
 
