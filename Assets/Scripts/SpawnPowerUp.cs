@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SpawnPowerUp : MonoBehaviour
 {
-    public static GameManager Instance;
     public GameObject[] powerUpPrefabs;
     public GameObject cupPrefab;
 

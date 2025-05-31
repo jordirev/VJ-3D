@@ -78,6 +78,7 @@ public class BulletDestruction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameManager.Instance.AddPoints(500);
         }
         else if (collision.gameObject.CompareTag("Walls"))
         {

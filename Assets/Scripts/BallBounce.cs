@@ -224,7 +224,8 @@ public class BallBounce : MonoBehaviour
     private IEnumerator BallFallen()
     {
         if (GameManager.Instance.vidas != 0) transform.position = new Vector3(5f, 1f, 0f);
-        yield return StartCoroutine(GameManager.Instance.UpdateLives(GameOverImage));
+        GameManager.Instance.LoseLife();
+        yield return new WaitForSeconds(1.5f);
     }
 }
 

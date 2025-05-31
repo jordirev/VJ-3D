@@ -19,8 +19,6 @@ public class TreeCutMovement : MonoBehaviour
 
     public GameObject nextLevelImage;
 
-    private GameObject gameManager;
-
     private void Awake()
     {
         nextLevelImage.SetActive(false);
@@ -36,8 +34,6 @@ public class TreeCutMovement : MonoBehaviour
         {
             cam.OnRotationComplete += EnableMovement;
         }*/
-
-        gameManager = GameObject.Find("GameManager");
 
         if (rb == null)
         {

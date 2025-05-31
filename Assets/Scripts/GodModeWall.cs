@@ -12,6 +12,14 @@ public class GodModeWall : MonoBehaviour
     private Coroutine godModeCoroutine;
 
 
+    private void Awake()
+    {
+        isGodModeActive = false;
+        if (GodMode != null) GodMode.SetActive(isGodModeActive);
+        if (godModeText != null) godModeText.gameObject.SetActive(false);
+        if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false);
+    }
+
     void Start()
     {
         if (GodMode != null) GodMode.SetActive(false);
@@ -21,7 +29,6 @@ public class GodModeWall : MonoBehaviour
         if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
