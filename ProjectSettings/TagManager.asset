@@ -20,6 +20,11 @@ TagManager:
   - ExtraBalls
   - Magnet
   - PUgodMode
+  - Heart
+  - Limit
+  - ExtraBall
+  - GameOverText
+  - 1UP
   layers:
   - Default
   - TransparentFX

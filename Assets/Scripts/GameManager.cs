@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance;
 
     public int score = 0;
@@ -28,12 +29,12 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife()
     {
-        vidas--;
+        if (vidas > 0) vidas--;
     }
 
     public void GainLife()
     {
-        vidas++;
+        if (vidas < 3) vidas++;
     }
 
     public void ResetGame()
