@@ -31,6 +31,8 @@ public class BallBounce : MonoBehaviour
     private bool isEnganchada = false;
     private Transform paddleTransform;
     [SerializeField] private Vector3 offsetDesdePaleta = new Vector3(-0.5f, -0.4f, 0f);
+    private float tiempoDesenganche = 0f;
+    private float retardoReenganche = 0.2f;
 
     private GameObject GameOverImage;
 
@@ -71,6 +73,9 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tiempoDesenganche > 0f)
+            tiempoDesenganche -= Time.deltaTime;
+
         if (isEnganchada)
         {
             // La bola sigue la paleta
@@ -86,14 +91,15 @@ public class BallBounce : MonoBehaviour
                 isEnganchada = false;
                 rb.isKinematic = false;
                 GetComponent<Collider>().enabled = true;
-                rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
+                rb.linearVelocity = Vector3.left * velocidadInicial;
+                tiempoDesenganche = retardoReenganche; // Inicia el retardo
+                //isMagnetActive = false;
             }
 
             return; // no aplicar lógica normal mientras esté enganchada
         }
         else
         {
-            // Asegurarse de que la física y colisiones estén activadas cuando no está enganchada
             rb.isKinematic = false;
             GetComponent<Collider>().enabled = true;
         }
@@ -127,11 +133,10 @@ public class BallBounce : MonoBehaviour
             Debug.Log("Choca barra");
             Debug.Log("Contador rebotes reiniciado por golpe a barra");
 
-            if (isMagnetActive && !isEnganchada)
+            if (isMagnetActive && !isEnganchada && tiempoDesenganche <= 0f)
             {
                 rb.linearVelocity = Vector3.zero;
                 transform.position = paddleTransform.position + offsetDesdePaleta;
-                // NO usar SetParent aquí
                 isEnganchada = true;
                 Debug.Log("¡Bola enganchada a la barra por imán!");
                 return;
@@ -147,12 +152,12 @@ public class BallBounce : MonoBehaviour
 
             if (Mathf.Abs(contacto.normal.x) > 0.9f)
             {
-                // Forzar la dirección hacia la izquierda (eje -X) con un ángulo aleatorio más exagerado
-                float anguloDesvio = Random.Range(-60f, 60f) * Mathf.Deg2Rad; // Desviación de hasta 60 grados
+                // Forzar la dirección hacia la izquierda 
+                float anguloDesvio = Random.Range(-60f, 60f) * Mathf.Deg2Rad; 
                 Vector3 direccionRebote = new Vector3(
-                    -Mathf.Cos(anguloDesvio), // Principalmente hacia la izquierda en X (signo negativo)
-                    Mathf.Sin(anguloDesvio),  // Variación más grande en Y
-                    0f                        // Sin componente Z para evitar rebote en profundidad
+                    -Mathf.Cos(anguloDesvio), 
+                    Mathf.Sin(anguloDesvio),  
+                    0f                        
                 );
 
                 // Mantener la velocidad actual
@@ -164,29 +169,27 @@ public class BallBounce : MonoBehaviour
 
                 // Limitar el valor entre -1 y 1
                 posicionRelativa = Mathf.Clamp(posicionRelativa, -1f, 1f);
-
-                // Definir el ángulo máximo (en radianes)
                 float anguloMaximo = 180f * Mathf.Deg2Rad;
 
                 // Determinar región de impacto
                 if (posicionRelativa < -0.33f) // izquierda
                 {
-                    anguloRebote = -anguloMaximo; // Rebote fuerte hacia la izquierda
+                    anguloRebote = -anguloMaximo; 
                 }
                 else if (posicionRelativa > 0.33f) // derecha
                 {
-                    anguloRebote = anguloMaximo; // Rebote fuerte hacia la derecha
+                    anguloRebote = anguloMaximo; 
                 }
                 else // centro
                 {
-                    anguloRebote = 0f; // Rebote casi recto
+                    anguloRebote = 0f;
                 }
 
-                // Calcular nueva dirección (plano YZ, X constante)
+                // Calcular nueva dirección 
                 Vector3 nuevaDireccion = new Vector3(
-                    -1f,                        // Movimiento horizontal (constante)
-                    Mathf.Sin(anguloRebote),   // Altura
-                    Mathf.Cos(anguloRebote)    // Profundidad
+                    -1f,                        
+                    Mathf.Sin(anguloRebote),   
+                    Mathf.Cos(anguloRebote)    
                 );
 
                 // Aplicar velocidad manteniendo la magnitud
