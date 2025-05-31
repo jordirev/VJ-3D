@@ -18,7 +18,7 @@ public class LivesManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -41,7 +41,7 @@ public class LivesManager : MonoBehaviour
     public void UpdateHearts()
     {
         int vidas = GameManager.Instance.vidas;
-        for (int i = 0; i < Hearts.Length+1; i++)
+        for (int i = 0; i < Hearts.Length; i++)
         {
             if (i < vidas)
             {
@@ -56,13 +56,10 @@ public class LivesManager : MonoBehaviour
 
     private IEnumerator ChangeToMenuCoroutine()
     {
-        if (GameOverImage != null)
-        {
-            GameOverImage.SetActive(true);
-            yield return StartCoroutine(FadeIn(GameOverImage));
-            yield return new WaitForSeconds(3f);
-            GameOverImage.SetActive(false);
-        }
+        GameOverImage.SetActive(true);
+        yield return StartCoroutine(FadeIn(GameOverImage));
+        yield return new WaitForSeconds(3f);
+        GameOverImage.SetActive(false);
         GameManager.Instance.ResetGame();
         SceneManager.LoadScene(0);
     }

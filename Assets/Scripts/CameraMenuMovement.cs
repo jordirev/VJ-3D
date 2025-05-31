@@ -10,6 +10,7 @@ public class CameraMenuMovement : MonoBehaviour
 
     private bool fotosMostradas = false;
 
+    
     void Start()
     {
         Vector3 pos = transform.position;
@@ -23,7 +24,7 @@ public class CameraMenuMovement : MonoBehaviour
             {
                 if (foto != null)
                 {
-                    foto.SetActive(false);
+                    //foto.SetActive(false);
                     var canvasGroup = foto.GetComponent<CanvasGroup>();
                     if (canvasGroup == null)
                         canvasGroup = foto.AddComponent<CanvasGroup>();
@@ -33,7 +34,7 @@ public class CameraMenuMovement : MonoBehaviour
         }
     }
 
-    private void Awake()
+    void Awake()
     {
         Vector3 pos = transform.position;
         pos.y = 17.8f;
@@ -132,7 +133,7 @@ public class CameraMenuMovement : MonoBehaviour
             {
                 if (foto != null)
                 {
-                    foto.SetActive(true);
+                    //foto.SetActive(true);
                     yield return StartCoroutine(FadeIn(foto));
                     yield return new WaitForSeconds(tiempoEntreFotos);
                 }

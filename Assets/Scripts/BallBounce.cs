@@ -146,7 +146,7 @@ public class BallBounce : MonoBehaviour
         {
             Debug.Log("Bola fuera de l�mites, reiniciando posici�n");
             if (gameObject.tag == "Ball")
-                StartCoroutine(BallFallen());
+                BallFallen();
             else if (gameObject.tag == "ExtraBall")
                 Destroy(gameObject);
 
@@ -221,11 +221,10 @@ public class BallBounce : MonoBehaviour
         paddleTransform = paddle;
     }
 
-    private IEnumerator BallFallen()
+    private void BallFallen()
     {
         if (GameManager.Instance.vidas != 0) transform.position = new Vector3(5f, 1f, 0f);
         GameManager.Instance.LoseLife();
-        yield return new WaitForSeconds(1.5f);
     }
 }
 
