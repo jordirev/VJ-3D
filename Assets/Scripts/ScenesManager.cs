@@ -39,6 +39,8 @@ public class ScenesManager : MonoBehaviour
 
         // Suscribirse al evento de cambio de escena
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        nextLevelImage.SetActive(false);
     }
 
     /*void OnDestroy()
@@ -87,11 +89,6 @@ public class ScenesManager : MonoBehaviour
             estaEnNivel = true;
         }
 
-        nextLevelImage.SetActive(false);
-    }
-
-    private void Awake()
-    {
         nextLevelImage.SetActive(false);
     }
 

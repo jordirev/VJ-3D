@@ -13,10 +13,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     private float spwanProbability = 0.2f;
 
-    bool cupAppeared = false;
-
-    private float spwanProbability = 0.2f;
-   
+    bool cupAppeared = false;   
 
     private void Start()
     {
