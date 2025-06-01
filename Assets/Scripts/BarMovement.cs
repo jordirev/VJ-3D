@@ -235,10 +235,17 @@ public class TreeCutMovement : MonoBehaviour
                 Vector3 spawnPosition = mainBall.transform.position;
 
                 GameObject ball1 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
-                ball1.tag = "ExtraBall";
+                ball1.tag = "Ball";
+                if (ball1.GetComponent<BallBounce>() == null)
+                {
+                    ball1.AddComponent<BallBounce>();
+                }
                 GameObject ball2 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
-                ball2.tag = "ExtraBall";
-                Debug.Log("Aparecen extra balls");
+                ball2.tag = "Ball";
+                if (ball2.GetComponent<BallBounce>() == null)
+                {
+                    ball2.AddComponent<BallBounce>();
+                }
 
                 Rigidbody mainRb = mainBall.GetComponent<Rigidbody>();
                 Vector3 direccionPrincipal = mainRb.linearVelocity.normalized;
@@ -258,6 +265,7 @@ public class TreeCutMovement : MonoBehaviour
                 ball1.GetComponent<Rigidbody>().linearVelocity = direccion1 * velocidad;
                 ball2.GetComponent<Rigidbody>().linearVelocity = direccion2 * velocidad;
 
+                Debug.Log("Aparecen extra balls");
             }
 
             GameManager.Instance.AddPoints(1000);

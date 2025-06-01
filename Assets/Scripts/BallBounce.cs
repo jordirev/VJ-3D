@@ -45,6 +45,8 @@ public class BallBounce : MonoBehaviour
 
     private GameObject GameOverImage;
 
+    private int numSceneBalls = 1; 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,6 +80,8 @@ public class BallBounce : MonoBehaviour
         {
             GameOverImage.SetActive(false);
         }
+
+        numSceneBalls = GameObject.FindGameObjectsWithTag("Ball").Length;
     }
 
     private void Awake()
@@ -89,6 +93,8 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        numSceneBalls = GameObject.FindGameObjectsWithTag("Ball").Length;
+
         if (tiempoDesenganche > 0f)
             tiempoDesenganche -= Time.deltaTime;
 
@@ -235,19 +241,18 @@ public class BallBounce : MonoBehaviour
                 Debug.Log("entra en PowerBall de BallBounce");
                 return;
             }
+
+            Destroy(collision.gameObject);
         }
 
         if (objetoColisionado.CompareTag("Limit"))
         {
             Debug.Log("Bola fuera de l�mites, reiniciando posici�n");
-            if (gameObject.tag == "Ball") BallFallen();
-            else if (gameObject.tag == "ExtraBall")
-                Destroy(gameObject);
 
-            if (GameManager.Instance.vidas == 0)
-            {
-                Destroy(gameObject);
-            }
+            if (gameObject.tag == "Ball" && numSceneBalls == 1) BallFallen();
+            else Destroy(gameObject);
+            
+            if (GameManager.Instance.vidas == 0) Destroy(gameObject);
         }
 
         float velocidad = ultimaVelocidad.magnitude;
