@@ -222,6 +222,12 @@ public class TreeCutMovement : MonoBehaviour
                 Rigidbody mainRb = mainBall.GetComponent<Rigidbody>();
                 Vector3 direccionPrincipal = mainRb.linearVelocity.normalized;
 
+                BallBounce ballScript1 = ball1.GetComponent<BallBounce>();
+                BallBounce ballScript2 = ball2.GetComponent<BallBounce>();
+
+                if(ballScript1 != null) ballScript1.enabled = true;
+                if (ballScript2 != null) ballScript2.enabled = true;
+
                 // Rotamos la dirección un poco a la izquierda y a la derecha (15 grados)
                 Vector3 direccion1 = Quaternion.Euler(0, -15f, 0) * direccionPrincipal;
                 Vector3 direccion2 = Quaternion.Euler(0, 15f, 0) * direccionPrincipal;
