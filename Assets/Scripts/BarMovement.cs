@@ -24,6 +24,8 @@ public class TreeCutMovement : MonoBehaviour
     [SerializeField] private float volumenSonido = 1.0f;
 
     private AudioSource audioSource;
+    [Header("Audio Win")]
+    [SerializeField] private AudioClip sonidoWin;
 
 
     private void Awake()
@@ -154,15 +156,23 @@ public class TreeCutMovement : MonoBehaviour
         {
             ReproducirSonidoPowerup();
 
-            // Obtener el BoxCollider del tree_cut
-            BoxCollider boxCollider = GetComponent<BoxCollider>();
-            if (boxCollider != null)
+            // Obtener el CapsuleCollider del tree_cut
+            CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
+            if (capsuleCollider != null)
             {
-                // Calcular los extremos en espacio local usando el BoxCollider
-                Vector3 size = boxCollider.size;
-                Vector3 center = boxCollider.center;
-                Vector3 leftLocal = new Vector3(center.x - size.x / 2 + 1, 0.1f, 0);
-                Vector3 rightLocal = new Vector3(center.x + size.x / 2 - 1, 0.1f, 0);
+                // Calcular los extremos en espacio local usando el CapsuleCollider
+                Vector3 center = capsuleCollider.center;
+                float height = capsuleCollider.height;
+                float radius = capsuleCollider.radius;
+
+                // Ajustar la posición: más arriba (eje Y) y más centrado (eje X)
+                float offsetY = 0.3f; // Ajusta este valor según lo que necesites
+                float offsetX = 0.67f; // Ajusta este valor para acercar al centro
+                float offsetZ = 0.12f; // Ajusta este valor para acercar al centro
+
+                // Suponiendo que la cápsula está alineada con el eje X (Direction = 0)
+                Vector3 leftLocal = new Vector3(center.x - (height / 2 - radius) + offsetX, center.y + offsetY, center.z + offsetZ);
+                Vector3 rightLocal = new Vector3(center.x + (height / 2 - radius) - offsetX, center.y + offsetY, center.z + offsetZ);
 
                 // Convertir a espacio global
                 Vector3 leftWorld = transform.TransformPoint(leftLocal);
@@ -322,13 +332,30 @@ public class TreeCutMovement : MonoBehaviour
 
     private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
     {
+        GameObject[] ball = GameObject.FindGameObjectsWithTag("Ball");
+        if (ball != null)
+        {
+            foreach (GameObject b in ball)
+            {
+                Destroy(b);
+            }
+        }
+
         if (text != null)
         {
             text.SetActive(true);
             yield return StartCoroutine(FadeIn(text));
-            yield return new WaitForSeconds(4f);
+
+            if (sonidoWin != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(sonidoWin);
+                yield return new WaitForSeconds(sonidoWin.length);
+            }
+
+            yield return new WaitForSeconds(0.5f);
             text.SetActive(false);
         }
+
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int totalEscenas = SceneManager.sceneCountInBuildSettings;
         int siguienteEscena = (escenaActual + 1) % totalEscenas;

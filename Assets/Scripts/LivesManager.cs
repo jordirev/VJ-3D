@@ -4,14 +4,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Collections;
 using UnityEngine.Video;
+using UnityEditor.Playables;
 
 public class LivesManager : MonoBehaviour
 {
     public static LivesManager Instance;
     public GameObject GameOverImage;
+    public AudioClip gameOverSound; 
+    private AudioSource audioSource;
 
     private GameObject[] Hearts;
     private float duracionFade = 1.0f;
+
+    private bool played = false;
 
     void Awake()
     {
@@ -30,6 +35,12 @@ public class LivesManager : MonoBehaviour
     {
         Hearts = GameObject.FindGameObjectsWithTag("Heart");
         System.Array.Sort(Hearts, (a, b) => string.Compare(a.name, b.name, System.StringComparison.Ordinal));
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        played = false;
     }
 
     private void Update()
@@ -58,6 +69,12 @@ public class LivesManager : MonoBehaviour
     {
         GameOverImage.SetActive(true);
         yield return StartCoroutine(FadeIn(GameOverImage));
+        if (gameOverSound != null && audioSource != null && !played)
+        {
+            played = true;
+            audioSource.PlayOneShot(gameOverSound);
+            yield return new WaitForSeconds(gameOverSound.length);
+        }
         yield return new WaitForSeconds(3f);
         GameOverImage.SetActive(false);
         GameManager.Instance.ResetGame();

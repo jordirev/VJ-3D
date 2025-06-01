@@ -15,7 +15,6 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void Start()
     {
-        bool activateCup = false;
 
         ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
         if (SceneMngr != null)
@@ -26,8 +25,6 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void Awake()
     {
-        bool activateCup = false;
-
         ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
         if (SceneMngr != null)
         {
