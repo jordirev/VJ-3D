@@ -19,6 +19,13 @@ public class TreeCutMovement : MonoBehaviour
 
     public GameObject nextLevelImage;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip sonidoPowerup;
+    [SerializeField] private float volumenSonido = 1.0f;
+
+    private AudioSource audioSource;
+
+
     private void Awake()
     {
         nextLevelImage.SetActive(false);
@@ -45,6 +52,13 @@ public class TreeCutMovement : MonoBehaviour
         rb.isKinematic = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     void Update()
@@ -102,6 +116,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("BigArrow"))
         {
+            ReproducirSonidoPowerup();
+
             Vector3 newScale = transform.localScale;
             newScale.x *= 1.25f;
             newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
@@ -113,6 +129,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("SmallArrow"))
         {
+            ReproducirSonidoPowerup();
+
             Vector3 newScale = transform.localScale;
             newScale.x *= 0.85f;
             newScale.x = Mathf.Clamp(newScale.x, 1.3f, 2.9f);
@@ -124,6 +142,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("NextLevel"))
         {
+            ReproducirSonidoPowerup();
+
             StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
             Debug.Log("PowerUp utilizado por el jugador");
 
@@ -132,6 +152,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("Pistols"))
         {
+            ReproducirSonidoPowerup();
+
             // Obtener el BoxCollider del tree_cut
             BoxCollider boxCollider = GetComponent<BoxCollider>();
             if (boxCollider != null)
@@ -171,6 +193,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("PowerBallOn"))
         {
+            ReproducirSonidoPowerup();
+
             GameObject ball = GameObject.FindGameObjectWithTag("Ball");
             if (ball != null)
             {
@@ -186,6 +210,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("PowerBallOff"))
         {
+            ReproducirSonidoPowerup();
+
             GameObject ball = GameObject.FindGameObjectWithTag("Ball");
             if (ball != null)
             {
@@ -201,6 +227,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("ExtraBalls"))
         {
+            ReproducirSonidoPowerup();
+
             GameObject mainBall = GameObject.FindGameObjectWithTag("Ball");
             if (mainBall != null)
             {
@@ -237,6 +265,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("Magnet"))
         {
+            ReproducirSonidoPowerup();
+
             GameObject ball = GameObject.FindGameObjectWithTag("Ball");
 
             if (ball != null)
@@ -255,6 +285,8 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("PUgodMode"))
         {
+            ReproducirSonidoPowerup();
+
             GameObject godModeWall = GameObject.Find("GameManager"); 
             if (godModeWall != null)
             {
@@ -272,9 +304,12 @@ public class TreeCutMovement : MonoBehaviour
 
         if (other.CompareTag("1UP"))
         {
+            ReproducirSonidoPowerup();
+
             GameManager.Instance.GainLife();
             GameManager.Instance.AddPoints(1000);
         }
+
     }
 
     private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
@@ -312,5 +347,18 @@ public class TreeCutMovement : MonoBehaviour
     {
         canMoveLeft = true;
         canMoveRight = true;
+    }
+
+    private void ReproducirSonidoPowerup()
+    {
+        if (sonidoPowerup != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonido;
+            audioSource.PlayOneShot(sonidoPowerup);
+        }
+        else
+        {
+            Debug.LogWarning("Error sonido");
+        }
     }
 }
