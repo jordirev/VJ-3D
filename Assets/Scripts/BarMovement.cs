@@ -266,6 +266,7 @@ public class TreeCutMovement : MonoBehaviour
         if (other.CompareTag("1UP"))
         {
             GameManager.Instance.GainLife();
+            GameManager.Instance.AddPoints(1000);
         }
     }
 
