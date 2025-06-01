@@ -1054,9 +1054,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1105692754}
-        m_TargetAssemblyTypeName: PlayButtonUI, Assembly-CSharp
-        m_MethodName: OnPLayButtonRestart
+      - m_Target: {fileID: 1105692756}
+        m_TargetAssemblyTypeName: menuButtonUI, Assembly-CSharp
+        m_MethodName: OnmenuButtonRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2306,7 +2306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1105692755}
-  - component: {fileID: 1105692754}
+  - component: {fileID: 1105692756}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2314,19 +2314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1105692754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105692753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a913f2db596c1ce44883f4086abc80a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
 --- !u!4 &1105692755
 Transform:
   m_ObjectHideFlags: 0
@@ -2342,6 +2329,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105692756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105692753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f8a2a3a90cd5148badef5806fbb726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 636900180}
 --- !u!1 &1107267613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5279811246306103102, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
