@@ -22,7 +22,6 @@ TagManager:
   - PUgodMode
   - Heart
   - Limit
-  - ExtraBall
   - GameOverText
   - 1UP
   layers:
