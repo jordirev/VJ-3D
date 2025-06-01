@@ -246,16 +246,21 @@ public class TreeCutMovement : MonoBehaviour
 
                 GameObject ball1 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
                 ball1.tag = "Ball";
-                if (ball1.GetComponent<BallBounce>() == null)
+                BallBounce ballBounce1 = ball1.GetComponent<BallBounce>();
+                if (ballBounce1 == null)
                 {
-                    ball1.AddComponent<BallBounce>();
+                    ballBounce1 = ball1.AddComponent<BallBounce>();
                 }
+                ballBounce1.isPowerBallActive = true;
+
                 GameObject ball2 = Instantiate(prefabBall, spawnPosition, Quaternion.identity);
                 ball2.tag = "Ball";
-                if (ball2.GetComponent<BallBounce>() == null)
+                BallBounce ballBounce2 = ball2.GetComponent<BallBounce>();
+                if (ballBounce2 == null)
                 {
-                    ball2.AddComponent<BallBounce>();
+                    ballBounce2 = ball2.AddComponent<BallBounce>();
                 }
+                ballBounce2.isPowerBallActive = true;
 
                 Rigidbody mainRb = mainBall.GetComponent<Rigidbody>();
                 Vector3 direccionPrincipal = mainRb.linearVelocity.normalized;
@@ -263,7 +268,7 @@ public class TreeCutMovement : MonoBehaviour
                 BallBounce ballScript1 = ball1.GetComponent<BallBounce>();
                 BallBounce ballScript2 = ball2.GetComponent<BallBounce>();
 
-                if(ballScript1 != null) ballScript1.enabled = true;
+                if (ballScript1 != null) ballScript1.enabled = true;
                 if (ballScript2 != null) ballScript2.enabled = true;
 
                 // Rotamos la dirección un poco a la izquierda y a la derecha (15 grados)

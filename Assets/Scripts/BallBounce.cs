@@ -49,7 +49,7 @@ public class BallBounce : MonoBehaviour
 
     private int numSceneBalls = 1;
 
-    private bool puedeMoverse = false;  // canviar a false
+    public bool puedeMoverse = false;  // canviar a false
 
 
 
