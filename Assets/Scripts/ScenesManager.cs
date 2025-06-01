@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 using System.Runtime.ExceptionServices;
+using UnityEngine.EventSystems;
 
 public class ScenesManager : MonoBehaviour
 {
@@ -47,7 +48,6 @@ public class ScenesManager : MonoBehaviour
 
         nextLevelImage.SetActive(false);
 
-        GameManager.Instance.cupAppeared = false;
         soundplayed = false;
         triggered = false;
     }
@@ -100,7 +100,6 @@ public class ScenesManager : MonoBehaviour
 
         nextLevelImage.SetActive(false);
 
-        GameManager.Instance.cupAppeared = false;
         soundplayed = false;
         triggered = false;
     }
@@ -111,8 +110,9 @@ public class ScenesManager : MonoBehaviour
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
         int percentatgeBlocs = (cantidadDeBloques) * 100 / cantidadDeBloquesMax;
 
-        if (percentatgeBlocs <= 5 && cantidadDeBloques > 0)
+        if (percentatgeBlocs <= 5 && cantidadDeBloques > 0 && !triggered)
         {
+            triggered = true;
             ActivateCupPowerUp?.Invoke();
         }
         if (cantidadDeBloques == 0)
@@ -171,6 +171,13 @@ public class ScenesManager : MonoBehaviour
 
             yield return new WaitForSeconds(3f);
             text.SetActive(false);
+        }
+
+        // GUARDAR HIGH SCORE ANTES DE CAMBIAR DE ESCENA 
+        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.SaveHighScore();
         }
 
         int escenaActual = SceneManager.GetActiveScene().buildIndex;

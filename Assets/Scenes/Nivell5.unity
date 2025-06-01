@@ -451,6 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36908a89c25033e4fa97d726f2bde5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mensajeTexto: {fileID: 0}
+  duracionFade: 1
+  tiempoVisible: 2
 --- !u!108 &30021741
 Light:
   m_ObjectHideFlags: 0
@@ -9487,6 +9490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36908a89c25033e4fa97d726f2bde5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mensajeTexto: {fileID: 2132589213}
+  duracionFade: 1
+  tiempoVisible: 2
 --- !u!81 &1230297523
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11342,7 +11348,7 @@ Transform:
   m_GameObject: {fileID: 1428543456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.07, y: 1.44, z: -0.41817543}
+  m_LocalPosition: {x: 8.69, y: 1.44, z: -0.41817543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

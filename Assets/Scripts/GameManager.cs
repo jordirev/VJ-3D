@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int vidas = 3;
 
-    public bool cupAppeared = false;
-
     void Awake()
     {
         if (Instance == null)
@@ -43,6 +41,5 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         vidas = 3;
-        cupAppeared = false;
     }
 }

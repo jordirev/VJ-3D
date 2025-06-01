@@ -49,7 +49,7 @@ public class BallBounce : MonoBehaviour
 
     private int numSceneBalls = 1;
 
-    private bool puedeMoverse = true;  // canviar a false
+    private bool puedeMoverse = false;  // canviar a false
 
 
 
@@ -105,11 +105,11 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /**if (!puedeMoverse)
+        if (!puedeMoverse)
         {
             rb.linearVelocity = Vector3.zero;
             return;
-        }*/
+        }
 
         numSceneBalls = GameObject.FindGameObjectsWithTag("Ball").Length;
 

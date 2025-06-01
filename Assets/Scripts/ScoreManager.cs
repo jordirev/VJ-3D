@@ -15,15 +15,15 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-
-  /*  public void AddPoints(int amount)
+    public void AddPoints(int amount)
     {
-        score += amount;
-        UpdateScoreText();
-
-   
-        SaveHighScore();
-    }*/
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.score += amount;
+            UpdateScoreText();
+            SaveHighScore();
+        }
+    }
 
     void UpdateScoreText()
     {
@@ -33,18 +33,23 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-  /*  public void SaveHighScore()
+    public void SaveHighScore()
     {
-        int highScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (score > highScore)
+        if (GameManager.Instance != null)
         {
-            PlayerPrefs.SetInt("HighScore", score);
-            PlayerPrefs.Save();
+            int highScore = PlayerPrefs.GetInt("HighScore", 0);
+            if (GameManager.Instance.score > highScore)
+            {
+                PlayerPrefs.SetInt("HighScore", GameManager.Instance.score);
+                PlayerPrefs.Save();
+            }
         }
-    }*/
+    }
 
-   /* public int GetScore()
+    public int GetScore()
     {
-        return score;
-    }*/
+        if (GameManager.Instance != null)
+            return GameManager.Instance.score;
+        return 0;
+    }
 }

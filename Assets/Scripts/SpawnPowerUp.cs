@@ -11,7 +11,9 @@ public class SpawnPowerUp : MonoBehaviour
     public GameObject efectoDesintegracionPrefab; // Prefab con el efecto de desintegración
     public float duracionEfectoDesintegracion = 1.5f;
 
-    private float spwanProbability = 0.2f;  
+    private float spwanProbability = 0.2f;
+
+    private bool cupAppeared = false;
 
     private void Start()
     {
@@ -43,11 +45,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void OnActivateCupPowerUp()
     {
-        if (!GameManager.Instance.cupAppeared)
-        {
-            activateCup = true;
-            GameManager.Instance.cupAppeared = true;
-        }
+        if (!cupAppeared) activateCup = true;
     }
 
     private void OnCollisionEnter(Collision collision)

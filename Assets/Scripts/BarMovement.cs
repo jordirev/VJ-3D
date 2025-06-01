@@ -10,8 +10,8 @@ public class TreeCutMovement : MonoBehaviour
     private float moveInput;
     private float duracionFade = 1.0f;
 
-    private bool canMoveLeft = true;  //canviar els dos a false
-    private bool canMoveRight = true;
+    private bool canMoveLeft = false;  //canviar els dos a false
+    private bool canMoveRight = false;
 
     public GameObject pistolPrefab;
 
@@ -38,11 +38,11 @@ public class TreeCutMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Busca la cámara y se suscribe al evento
-        /**CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
+        CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
         if (cam != null)
         {
             cam.OnRotationComplete += EnableMovement;
-        }*/
+        }
 
         if (rb == null)
         {
@@ -185,7 +185,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol1, 20f); // Tiempo corregido a 20 segundos
+                Destroy(pistol1, 15f); 
 
                 // Instanciar la segunda pistola en el extremo derecho
                 GameObject pistol2 = Instantiate(
@@ -194,7 +194,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol2, 20f); // Tiempo corregido a 20 segundos
+                Destroy(pistol2, 15f);
                 Debug.Log("PowerUp utilizado por el jugador");
             }
 
@@ -354,6 +354,13 @@ public class TreeCutMovement : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
             text.SetActive(false);
+        }
+
+        // GUARDAR HIGH SCORE ANTES DE CAMBIAR DE ESCENA 
+        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.SaveHighScore();
         }
 
         int escenaActual = SceneManager.GetActiveScene().buildIndex;

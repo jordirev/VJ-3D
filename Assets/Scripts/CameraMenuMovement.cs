@@ -10,29 +10,7 @@ public class CameraMenuMovement : MonoBehaviour
 
     private bool fotosMostradas = false;
 
-    
-    void Start()
-    {
-        Vector3 pos = transform.position;
-        pos.y = 17.8f;
-        transform.position = pos;
-
-        // Oculta todas las fotos al inicio y pone su alpha en 0
-        if (fotos != null)
-        {
-            foreach (var foto in fotos)
-            {
-                if (foto != null)
-                {
-                    //foto.SetActive(false);
-                    var canvasGroup = foto.GetComponent<CanvasGroup>();
-                    if (canvasGroup == null)
-                        canvasGroup = foto.AddComponent<CanvasGroup>();
-                    canvasGroup.alpha = 0f;
-                }
-            }
-        }
-    }
+   
 
     void Awake()
     {
