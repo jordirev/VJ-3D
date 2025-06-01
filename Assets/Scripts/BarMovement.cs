@@ -133,13 +133,14 @@ public class TreeCutMovement : MonoBehaviour
         if (other.CompareTag("Pistols"))
         {
             // Obtener el BoxCollider del tree_cut
-            MeshCollider mesh = GetComponent<MeshCollider>();
-            if (mesh != null)
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            if (boxCollider != null)
             {
-                // Calcular los extremos en espacio local usando bounds del MeshCollider
-                Bounds bounds = mesh.sharedMesh.bounds;
-                Vector3 leftLocal = new Vector3(bounds.min.x + 1, 0.1f, 0);
-                Vector3 rightLocal = new Vector3(bounds.max.x - 1, 0.1f, 0);
+                // Calcular los extremos en espacio local usando el BoxCollider
+                Vector3 size = boxCollider.size;
+                Vector3 center = boxCollider.center;
+                Vector3 leftLocal = new Vector3(center.x - size.x / 2 + 1, 0.1f, 0);
+                Vector3 rightLocal = new Vector3(center.x + size.x / 2 - 1, 0.1f, 0);
 
                 // Convertir a espacio global
                 Vector3 leftWorld = transform.TransformPoint(leftLocal);
@@ -152,7 +153,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol1, 10000f); // CAAAAAAAAAAAAAANVIAR A 20 
+                Destroy(pistol1, 20f); // Tiempo corregido a 20 segundos
 
                 // Instanciar la segunda pistola en el extremo derecho
                 GameObject pistol2 = Instantiate(
@@ -161,7 +162,7 @@ public class TreeCutMovement : MonoBehaviour
                     transform.rotation,
                     transform
                 );
-                Destroy(pistol2, 10000); // CAAAAAAAAAAAAAAAAAAAANVIAR A 20 
+                Destroy(pistol2, 20f); // Tiempo corregido a 20 segundos
                 Debug.Log("PowerUp utilizado por el jugador");
             }
 
