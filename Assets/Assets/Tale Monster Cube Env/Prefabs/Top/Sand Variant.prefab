@@ -97,3 +97,5 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5

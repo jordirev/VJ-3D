@@ -2487,6 +2487,12 @@ MonoBehaviour:
   tagBarra: Player
   maxRebotesPared: 4
   factorPerturbacion: 0.3
+  sonidoReboteBarra: {fileID: 8300000, guid: 25eef831708c89c42ba45e0be0cfbd47, type: 3}
+  volumenSonido: 1
+  sonidoDestruir: {fileID: 8300000, guid: 6ee28b2344c7d754a9333a102bb8aeb3, type: 3}
+  volumenSonido2: 1
+  sonidoPared: {fileID: 8300000, guid: b326ae6b3c5e4374081abac25e55ab4f, type: 3}
+  volumenSonido3: 1
   isPowerBallActive: 0
   offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
 --- !u!54 &417778935
@@ -3278,6 +3284,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &494254658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3645,16 +3653,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4866032710447135604, guid: f8aa396952c169d4c898e4d8204c6b60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1059088329}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6616142317143122160, guid: f8aa396952c169d4c898e4d8204c6b60, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1109698665}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8aa396952c169d4c898e4d8204c6b60, type: 3}
---- !u!1 &557045254 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6616142317143122160, guid: f8aa396952c169d4c898e4d8204c6b60, type: 3}
-  m_PrefabInstance: {fileID: 557045253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &560552190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6046,6 +6046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelImage: {fileID: 646043504}
+  musicaFondo: {fileID: 8300000, guid: e111bc8e2ffaa264092c1a304ea7a120, type: 3}
+  volumenMusica: 0.5
 --- !u!114 &1020396077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6317,29 +6319,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4866032710447135604, guid: f8aa396952c169d4c898e4d8204c6b60, type: 3}
   m_PrefabInstance: {fileID: 557045253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1109698665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557045254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpPrefabs:
-  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
-  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
-  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
-  - {fileID: 138616, guid: 9747013bfc80c7648bebc0e13034f691, type: 3}
-  - {fileID: 5236371055654364939, guid: 8a0634b571b20aa409700af7df04b000, type: 3}
-  - {fileID: 139732, guid: da02e777db1a845488be1afe4a301955, type: 3}
-  - {fileID: 182158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-  - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
-  - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
-  cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
 --- !u!4 &1119495865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}
@@ -6629,6 +6608,8 @@ MonoBehaviour:
   - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
   - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &1180037961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}
@@ -6727,6 +6708,8 @@ MonoBehaviour:
   - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
   - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &1227542223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8069,6 +8052,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &1404672528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}
@@ -8164,6 +8149,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &1453109131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}
@@ -8483,6 +8470,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &1508451607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3020705093453526764, guid: 5aec3f88307e29047ac3602537779a83, type: 3}
@@ -10403,6 +10392,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &1988235274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}

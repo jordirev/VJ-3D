@@ -162,6 +162,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: bb1289604a66f4f4b951b641651a6e5e, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &4596937310893371088
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -424,6 +424,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2694987232934517669, guid: ae6144c3c0f672f4f82e7c767258e392, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: 81a091cc67b1d4e4cb307c7d5e9a6299, type: 3}
+    - target: {fileID: 2694987232934517669, guid: ae6144c3c0f672f4f82e7c767258e392, type: 3}
       propertyPath: 'powerUpPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
@@ -6726,6 +6730,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2278736915097957816, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278736915097957816, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653797760660323479, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: 97cd7c4fe4eed814a89e0e19da20a8b9, type: 3}
     - target: {fileID: 7251879486380165639, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_Name
       value: VFX_Fire
@@ -12888,6 +12904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelImage: {fileID: 1377629617}
+  musicaFondo: {fileID: 8300000, guid: e111bc8e2ffaa264092c1a304ea7a120, type: 3}
+  volumenMusica: 0.5
 --- !u!1001 &1635739562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14990,6 +15008,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &1960287600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15775,6 +15795,12 @@ MonoBehaviour:
   tagBarra: Player
   maxRebotesPared: 4
   factorPerturbacion: 0.3
+  sonidoReboteBarra: {fileID: 8300000, guid: 25eef831708c89c42ba45e0be0cfbd47, type: 3}
+  volumenSonido: 1
+  sonidoDestruir: {fileID: 8300000, guid: 6ee28b2344c7d754a9333a102bb8aeb3, type: 3}
+  volumenSonido2: 1
+  sonidoPared: {fileID: 8300000, guid: b326ae6b3c5e4374081abac25e55ab4f, type: 3}
+  volumenSonido3: 1
   isPowerBallActive: 0
   offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
 --- !u!1 &2030461567 stripped

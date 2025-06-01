@@ -179,6 +179,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &2686007
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -710,6 +712,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (43)
@@ -794,6 +800,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &40816474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -917,6 +925,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &53444355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1123,6 +1133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (24)
@@ -1207,6 +1221,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &83368412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1289,6 +1305,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &139045868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -1502,6 +1520,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (29)
@@ -1664,6 +1686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &157198770
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1941,6 +1965,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (33)
@@ -2016,63 +2044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
---- !u!1001 &240893485
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 182158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_Name
-      value: Magnet BlueRed
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.6279106
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.8195457
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.8921766
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 482158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &249081049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2081,6 +2054,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (39)
@@ -2293,6 +2270,12 @@ MonoBehaviour:
   tagBarra: Player
   maxRebotesPared: 4
   factorPerturbacion: 0.3
+  sonidoReboteBarra: {fileID: 8300000, guid: 25eef831708c89c42ba45e0be0cfbd47, type: 3}
+  volumenSonido: 1
+  sonidoDestruir: {fileID: 8300000, guid: 6ee28b2344c7d754a9333a102bb8aeb3, type: 3}
+  volumenSonido2: 1
+  sonidoPared: {fileID: 8300000, guid: b326ae6b3c5e4374081abac25e55ab4f, type: 3}
+  volumenSonido3: 1
   isPowerBallActive: 0
   offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
 --- !u!1 &283986119 stripped
@@ -2323,6 +2306,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &283986121
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2358,6 +2343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (44)
@@ -2422,6 +2411,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (42)
@@ -2606,6 +2599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &323210597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2614,6 +2609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (27)
@@ -2825,6 +2824,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &342436666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -2865,6 +2866,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (36)
@@ -3122,6 +3127,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &398035320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3189,6 +3196,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (41)
@@ -3342,6 +3353,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &446782335
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3528,6 +3541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &482398118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3937,6 +3952,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (31)
@@ -4721,29 +4740,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6977179289410413689, guid: ad5542dc75b57284f8cf86f19b9ea0a2, type: 3}
   m_PrefabInstance: {fileID: 2123490316}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &624690695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624690690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27baa69a8da0d34ab35c7fd5018ce17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpPrefabs:
-  - {fileID: 189414, guid: b2cbd2ec06465274aa0aba46d00df4f7, type: 3}
-  - {fileID: 1401274023320015543, guid: 9dc96ef94f59f5b4cb995ffe7b34fd35, type: 3}
-  - {fileID: 159138, guid: a4b8eb4ddb65270498112625f085d3d2, type: 3}
-  - {fileID: 138616, guid: 9747013bfc80c7648bebc0e13034f691, type: 3}
-  - {fileID: 5236371055654364939, guid: 8a0634b571b20aa409700af7df04b000, type: 3}
-  - {fileID: 139732, guid: da02e777db1a845488be1afe4a301955, type: 3}
-  - {fileID: 182158, guid: 7df90383c9129a940806502fcf9096f1, type: 3}
-  - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
-  - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
-  cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
 --- !u!54 &624690696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5058,6 +5054,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: 97cd7c4fe4eed814a89e0e19da20a8b9, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &682209714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1570087363758223409, guid: caec6db9ebd151943b8a953ebdf76887, type: 3}
@@ -5086,6 +5084,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &682209720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5257,6 +5257,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (20)
@@ -5403,6 +5407,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &729893687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5479,6 +5485,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (25)
@@ -5688,6 +5698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &749146440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,6 +5846,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!4 &753514304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0e5f540077da33c4eab7f0f7f1121747, type: 3}
@@ -5983,6 +5997,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (51)
@@ -6067,6 +6085,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &795081023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6352,6 +6372,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &811232676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6508,6 +6530,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &851412013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7336,6 +7360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelImage: {fileID: 1153844712}
+  musicaFondo: {fileID: 8300000, guid: e111bc8e2ffaa264092c1a304ea7a120, type: 3}
+  volumenMusica: 0.5
 --- !u!1 &908490470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -7364,6 +7390,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &908490476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7955,6 +7983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (45)
@@ -8066,6 +8098,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: 97cd7c4fe4eed814a89e0e19da20a8b9, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &1019366324 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -8499,6 +8533,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1084136649
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8534,6 +8570,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (50)
@@ -8753,6 +8793,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1103273803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9012,6 +9054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &1183825720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -9072,6 +9116,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1200522188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9127,6 +9173,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1203702852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9502,6 +9550,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (28)
@@ -9566,6 +9618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (40)
@@ -9781,6 +9837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1263572758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9885,6 +9943,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (15)
@@ -9949,6 +10011,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (32)
@@ -10195,6 +10261,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1 &1340955409
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,6 +10427,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1361599652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10414,6 +10484,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1376750612
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10724,6 +10796,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1397081479
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10779,6 +10853,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1411464278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11385,6 +11461,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (49)
@@ -11481,6 +11561,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (30)
@@ -11565,6 +11649,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1461360577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11997,6 +12083,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1504323085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12052,6 +12140,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1505682410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12107,6 +12197,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1506630611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12346,6 +12438,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1520046153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12401,6 +12495,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1522235015
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12456,6 +12552,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1524187528
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12810,6 +12908,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (35)
@@ -13092,6 +13194,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1613694563
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13159,6 +13263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (22)
@@ -13255,6 +13363,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (37)
@@ -13339,6 +13451,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1669114503
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13394,6 +13508,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1682781502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13501,6 +13617,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (47)
@@ -13957,6 +14077,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (64)
@@ -14105,6 +14229,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1769890409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14489,6 +14615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (63)
@@ -14846,6 +14976,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1850376247
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14881,6 +15013,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (61)
@@ -14965,6 +15101,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1855293120
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15005,6 +15143,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (21)
@@ -15324,6 +15466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (26)
@@ -15476,6 +15622,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1950189997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15663,6 +15811,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1959398609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15792,6 +15942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: fe57cb467f18c7e4d8197cf6f773a14f, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (23)
@@ -15867,6 +16021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs: []
   cupPrefab: {fileID: 0}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: 81a091cc67b1d4e4cb307c7d5e9a6299, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1981801433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15922,6 +16078,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &1982040269
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15989,6 +16147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (46)
@@ -16104,6 +16266,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!54 &2074523698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16316,6 +16480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525078001773072524, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
     - target: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
       propertyPath: m_Name
       value: Top_2 (62)
@@ -16429,11 +16597,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6977179289410413689, guid: ad5542dc75b57284f8cf86f19b9ea0a2, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 624690696}
-    - targetCorrespondingSourceObject: {fileID: 6977179289410413689, guid: ad5542dc75b57284f8cf86f19b9ea0a2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 624690695}
   m_SourcePrefab: {fileID: 100100000, guid: ad5542dc75b57284f8cf86f19b9ea0a2, type: 3}
 --- !u!1001 &2126247639
 PrefabInstance:
@@ -16668,6 +16833,8 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 4356800953600124292, guid: c2b2199207e56ec4e92dea4f52c37e2a, type: 3}
+  duracionEfectoDesintegracion: 1.5
 --- !u!1001 &951083639955567688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17006,4 +17173,3 @@ SceneRoots:
   - {fileID: 1516225190}
   - {fileID: 870306123}
   - {fileID: 1558730951}
-  - {fileID: 240893485}

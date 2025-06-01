@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5695446832975948515, guid: d3be3902f0af21d40b381cd77208daa0, type: 3}
+      propertyPath: efectoDesintegracionPrefab
+      value: 
+      objectReference: {fileID: 4356800953600124292, guid: 97cd7c4fe4eed814a89e0e19da20a8b9, type: 3}
     - target: {fileID: 9087054840095548406, guid: d3be3902f0af21d40b381cd77208daa0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -127,3 +131,5 @@ MonoBehaviour:
   - {fileID: 109860, guid: df0c59ebb296e374fbbcf1569a576be8, type: 3}
   - {fileID: 134674, guid: 8a2b9fe17763d2946ad000498978f6c7, type: 3}
   cupPrefab: {fileID: 172662, guid: f2853e123f20aba4da4d1eaa2b0b2f77, type: 3}
+  efectoDesintegracionPrefab: {fileID: 0}
+  duracionEfectoDesintegracion: 1.5
