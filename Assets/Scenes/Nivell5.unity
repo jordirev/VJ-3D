@@ -451,6 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36908a89c25033e4fa97d726f2bde5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mensajeTexto: {fileID: 0}
+  duracionFade: 1
+  tiempoVisible: 2
 --- !u!108 &30021741
 Light:
   m_ObjectHideFlags: 0
@@ -2103,6 +2106,8 @@ MonoBehaviour:
   volumenSonido2: 1
   sonidoPared: {fileID: 8300000, guid: b326ae6b3c5e4374081abac25e55ab4f, type: 3}
   volumenSonido3: 1
+  sonidoLoseLife: {fileID: 8300000, guid: 83cb638428a631845b0ed13cd5fc2350, type: 3}
+  volumenSonidoLoseLife: 1
   isPowerBallActive: 0
   offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
 --- !u!1 &283986119 stripped
@@ -4309,6 +4314,10 @@ PrefabInstance:
       propertyPath: speed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
+      propertyPath: sonidoWin
+      value: 
+      objectReference: {fileID: 8300000, guid: d6355fbabaf3b5140b3d0848e009b49d, type: 3}
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: velocidad
       value: 7
@@ -7301,6 +7310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverImage: {fileID: 1689036781}
+  gameOverSound: {fileID: 8300000, guid: e02d36b695f9c1e4e899b251493e4ecf, type: 3}
 --- !u!114 &908391947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7372,6 +7382,8 @@ MonoBehaviour:
   nextLevelImage: {fileID: 1153844712}
   musicaFondo: {fileID: 8300000, guid: e111bc8e2ffaa264092c1a304ea7a120, type: 3}
   volumenMusica: 0.5
+  sonidoWin: {fileID: 8300000, guid: d6355fbabaf3b5140b3d0848e009b49d, type: 3}
+  volumenWin: 0.5
 --- !u!1 &908490470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295445389476113465, guid: 206ba921695287f41ba9e27245b7e049, type: 3}
@@ -9478,6 +9490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36908a89c25033e4fa97d726f2bde5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mensajeTexto: {fileID: 2132589213}
+  duracionFade: 1
+  tiempoVisible: 2
 --- !u!81 &1230297523
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11333,7 +11348,7 @@ Transform:
   m_GameObject: {fileID: 1428543456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.07, y: 1.44, z: -0.41817543}
+  m_LocalPosition: {x: 8.69, y: 1.44, z: -0.41817543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

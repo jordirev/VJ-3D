@@ -28,6 +28,8 @@ public class BallBounce : MonoBehaviour
     [SerializeField] private float volumenSonido2 = 1.0f;
     [SerializeField] private AudioClip sonidoPared;
     [SerializeField] private float volumenSonido3 = 1.0f;
+    [SerializeField] private AudioClip sonidoLoseLife;
+    [SerializeField] private float volumenSonidoLoseLife = 1.0f;
 
 
     private Rigidbody rb;
@@ -45,7 +47,10 @@ public class BallBounce : MonoBehaviour
 
     private GameObject GameOverImage;
 
-    private int numSceneBalls = 1; 
+    private int numSceneBalls = 1;
+
+    private bool puedeMoverse = false;  // canviar a false
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,6 +63,13 @@ public class BallBounce : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody>();
 
+        }
+
+        // Busca la cámara y se suscribe al evento
+        CameraMovement cam = Object.FindFirstObjectByType<CameraMovement>();
+        if (cam != null)
+        {
+            cam.OnRotationComplete += EnableMovement;
         }
 
         audioSource = GetComponent<AudioSource>();
@@ -93,6 +105,12 @@ public class BallBounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!puedeMoverse)
+        {
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
+
         numSceneBalls = GameObject.FindGameObjectsWithTag("Ball").Length;
 
         if (tiempoDesenganche > 0f)
@@ -180,12 +198,11 @@ public class BallBounce : MonoBehaviour
 
             if (Mathf.Abs(contacto.normal.x) > 0.9f)
             {
-                // Forzar la dirección hacia la izquierda 
-                float anguloDesvio = Random.Range(-60f, 60f) * Mathf.Deg2Rad; 
+                float anguloDesvio = Random.Range(-85f, 85f) * Mathf.Deg2Rad;
                 Vector3 direccionRebote = new Vector3(
-                    -Mathf.Cos(anguloDesvio), 
-                    Mathf.Sin(anguloDesvio),  
-                    0f                        
+                    -Mathf.Cos(anguloDesvio),
+                    Mathf.Sin(anguloDesvio),
+                    0f
                 );
 
                 // Mantener la velocidad actual
@@ -197,33 +214,37 @@ public class BallBounce : MonoBehaviour
 
                 // Limitar el valor entre -1 y 1
                 posicionRelativa = Mathf.Clamp(posicionRelativa, -1f, 1f);
-                float anguloMaximo = 180f * Mathf.Deg2Rad;
+                float anguloMaximo = 75f * Mathf.Deg2Rad; // Exagera más el ángulo (antes 180°, ahora 75°)
 
                 // Determinar región de impacto
                 if (posicionRelativa < -0.33f) // izquierda
                 {
-                    anguloRebote = -anguloMaximo; 
+                    anguloRebote = -anguloMaximo;
                 }
                 else if (posicionRelativa > 0.33f) // derecha
                 {
-                    anguloRebote = anguloMaximo; 
+                    anguloRebote = anguloMaximo;
                 }
                 else // centro
                 {
                     anguloRebote = 0f;
                 }
 
+                // Exagerar el ángulo según la posición relativa
+                anguloRebote += posicionRelativa * anguloMaximo;
+
                 // Calcular nueva dirección 
                 Vector3 nuevaDireccion = new Vector3(
-                    -1f,                        
-                    Mathf.Sin(anguloRebote),   
-                    Mathf.Cos(anguloRebote)    
+                    -Mathf.Cos(anguloRebote),
+                    Mathf.Sin(anguloRebote),
+                    0f
                 );
 
                 // Aplicar velocidad manteniendo la magnitud
                 rb.linearVelocity = nuevaDireccion.normalized * ultimaVelocidad.magnitude;
             }
         }
+
 
         // Verificar si colisionó con una pared
         if (objetoColisionado.CompareTag(tagPared))
@@ -263,7 +284,14 @@ public class BallBounce : MonoBehaviour
         Vector3 direccion = Vector3.Reflect(ultimaVelocidad.normalized, collision.contacts[0].normal);
         rb.linearVelocity = direccion * Mathf.Max(velocidad, 0f);
     }
-  
+
+    private void EnableMovement()
+    {
+        puedeMoverse = true;
+        rb.linearVelocity = direccionInicial.normalized * velocidadInicial;
+        ultimaVelocidad = rb.linearVelocity;
+    }
+
     private void ManejarReboteInfinitoPared(Collision collision)
     {
         // Incrementar contador de rebotes en pared
@@ -330,6 +358,15 @@ public class BallBounce : MonoBehaviour
             rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidadInicial;
         }
         GameManager.Instance.LoseLife();
+
+        // Reproducir sonido personalizado de perder vida
+        if (sonidoLoseLife != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonidoLoseLife;
+            audioSource.PlayOneShot(sonidoLoseLife);
+        }
+
+        Debug.Log("Bola fuera de l�mites, restando vida. Vidas restantes: " + GameManager.Instance.vidas);
     }
 
     private void ReproducirSonidoRebote()

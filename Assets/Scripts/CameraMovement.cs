@@ -3,9 +3,7 @@ using UnityEngine.UI; // O TMPro si usas TextMeshPro
 
 public class CameraMovement : MonoBehaviour
 {
-
-    /**
-    public float rotationSpeed = 30f;
+    private float rotationSpeed = 50f;
     private float accumulatedAngle = 0f;
     private bool hasStartedGame = false;
 
@@ -97,5 +95,5 @@ public class CameraMovement : MonoBehaviour
         }
         canvasGroup.alpha = 0f;
         mensajeTexto.SetActive(false);
-    }*/
+    }
 }

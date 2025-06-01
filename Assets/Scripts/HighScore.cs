@@ -3,12 +3,10 @@ using TMPro;
 
 public class HighScore : MonoBehaviour
 {
-
     public TextMeshProUGUI highScoreText;
     public float delay = 4.75f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ShowHighScore()
     {
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = "High Score: " + highScore;
@@ -17,8 +15,13 @@ public class HighScore : MonoBehaviour
         c.a = 0f;
         highScoreText.color = c;
 
-        // Mostrar texto tras delay
+        CancelInvoke("MostrarTexto");
         Invoke("MostrarTexto", delay);
+    }
+
+    void Start()
+    {
+        ShowHighScore();
     }
 
     void MostrarTexto()

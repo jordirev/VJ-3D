@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 using System.Runtime.ExceptionServices;
+using UnityEngine.EventSystems;
 
 public class ScenesManager : MonoBehaviour
 {
@@ -17,8 +18,14 @@ public class ScenesManager : MonoBehaviour
     [Header("Música de Fondo")]
     [SerializeField] private AudioClip musicaFondo; 
     [SerializeField] private float volumenMusica = 0.5f;
+    [SerializeField] private AudioClip sonidoWin;
+    [SerializeField] private float volumenWin = 0.5f;
     private AudioSource audioSource;
     private bool estaEnNivel = false;
+    private bool soundplayed = false;
+
+    private bool triggered = false;
+
 
 
     void Awake()
@@ -41,7 +48,8 @@ public class ScenesManager : MonoBehaviour
 
         nextLevelImage.SetActive(false);
 
-        GameManager.Instance.cupAppeared = false;
+        soundplayed = false;
+        triggered = false;
     }
 
     /*void OnDestroy()
@@ -92,17 +100,19 @@ public class ScenesManager : MonoBehaviour
 
         nextLevelImage.SetActive(false);
 
-        GameManager.Instance.cupAppeared = false;
+        soundplayed = false;
+        triggered = false;
     }
 
     void Update()
     {
         if (Input.anyKeyDown) changeScene();
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
-        float percentatgeBlocs = ((float)cantidadDeBloques) / (float)cantidadDeBloquesMax;
+        int percentatgeBlocs = (cantidadDeBloques) * 100 / cantidadDeBloquesMax;
 
-        if (percentatgeBlocs <= 0.05f && cantidadDeBloques > 0f && !GameManager.Instance.cupAppeared)
+        if (percentatgeBlocs <= 5 && cantidadDeBloques > 0 && !triggered)
         {
+            triggered = true;
             ActivateCupPowerUp?.Invoke();
         }
         if (cantidadDeBloques == 0)
@@ -138,10 +148,38 @@ public class ScenesManager : MonoBehaviour
 
     private IEnumerator ChangeToNextSceneCoroutine(GameObject text)
     {
-        text.SetActive(true);
-        yield return StartCoroutine(FadeIn(text));
-        yield return new WaitForSeconds(4f);
-        text.SetActive(false);
+        GameObject[] ball = GameObject.FindGameObjectsWithTag("Ball");
+        if (ball != null)
+        {
+            foreach (GameObject b in ball)
+            {
+                Destroy(b);
+            }
+        }
+
+        if (text != null)
+        {
+            text.SetActive(true);
+            yield return StartCoroutine(FadeIn(text));
+
+            if (sonidoWin != null && audioSource != null && !soundplayed)
+            {
+                soundplayed = true;
+                audioSource.PlayOneShot(sonidoWin);
+                yield return new WaitForSeconds(sonidoWin.length);
+            }
+
+            yield return new WaitForSeconds(3f);
+            text.SetActive(false);
+        }
+
+        // GUARDAR HIGH SCORE ANTES DE CAMBIAR DE ESCENA 
+        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.SaveHighScore();
+        }
+
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int totalEscenas = SceneManager.sceneCountInBuildSettings;
         int siguienteEscena = (escenaActual + 1) % totalEscenas;
