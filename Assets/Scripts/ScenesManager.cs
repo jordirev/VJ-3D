@@ -8,7 +8,6 @@ public class ScenesManager : MonoBehaviour
 {
     private int cantidadDeBloques, cantidadDeBloquesMax;
     private float duracionFade = 1.0f;
-    bool eventTriggered = false;
 
     public event Action ActivateCupPowerUp;
 
@@ -41,6 +40,8 @@ public class ScenesManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         nextLevelImage.SetActive(false);
+
+        GameManager.Instance.cupAppeared = false;
     }
 
     /*void OnDestroy()
@@ -76,7 +77,7 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
-        void Start()
+    void Start()
     {
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
         cantidadDeBloquesMax = cantidadDeBloques;
@@ -90,6 +91,8 @@ public class ScenesManager : MonoBehaviour
         }
 
         nextLevelImage.SetActive(false);
+
+        GameManager.Instance.cupAppeared = false;
     }
 
     void Update()
@@ -97,9 +100,8 @@ public class ScenesManager : MonoBehaviour
         if (Input.anyKeyDown) changeScene();
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
 
-        if ((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 5f && !eventTriggered)
+        if (((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 5f) && !GameManager.Instance.cupAppeared)
         {
-            eventTriggered = true;
             ActivateCupPowerUp?.Invoke();
         }
         else if (cantidadDeBloques <= 0)
