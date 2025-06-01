@@ -17,13 +17,20 @@ public class PlayButtonUI : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        SceneManager.LoadScene("Nivell1");
-        Debug.Log("Play button (UI) clicked");
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            SceneManager.LoadScene("Nivell1");
+            Debug.Log("Play button (UI) clicked");
+        }
     }
 
     public void OnPLayButtonRestart()
     {
-        SceneManager.LoadScene("Menu");
-        Debug.Log("Play button (UI) clicked");
+        if (SceneManager.GetActiveScene().name == "Credits")
+        {
+            SceneManager.LoadScene("Menu");
+            Debug.Log("Play button (UI) clicked");
+            GameManager.Instance.ResetGame();
+        }
     }
 }

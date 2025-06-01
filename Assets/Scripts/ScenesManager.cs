@@ -8,7 +8,6 @@ public class ScenesManager : MonoBehaviour
 {
     private int cantidadDeBloques, cantidadDeBloquesMax;
     private float duracionFade = 1.0f;
-    bool eventTriggered = false;
 
     public event Action ActivateCupPowerUp;
 
@@ -41,6 +40,8 @@ public class ScenesManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         nextLevelImage.SetActive(false);
+
+        GameManager.Instance.cupAppeared = false;
     }
 
     /*void OnDestroy()
@@ -76,7 +77,7 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
-        void Start()
+    void Start()
     {
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
         cantidadDeBloquesMax = cantidadDeBloques;
@@ -90,19 +91,21 @@ public class ScenesManager : MonoBehaviour
         }
 
         nextLevelImage.SetActive(false);
+
+        GameManager.Instance.cupAppeared = false;
     }
 
     void Update()
     {
         if (Input.anyKeyDown) changeScene();
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
+        float percentatgeBlocs = ((float)cantidadDeBloques) / (float)cantidadDeBloquesMax;
 
-        if ((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 5f && !eventTriggered)
+        if (percentatgeBlocs <= 0.05f && cantidadDeBloques > 0f && !GameManager.Instance.cupAppeared)
         {
-            eventTriggered = true;
             ActivateCupPowerUp?.Invoke();
         }
-        else if (cantidadDeBloques <= 0)
+        if (cantidadDeBloques == 0)
         {
             StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
         }
@@ -141,7 +144,7 @@ public class ScenesManager : MonoBehaviour
         text.SetActive(false);
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int totalEscenas = SceneManager.sceneCountInBuildSettings;
-        int siguienteEscena = (escenaActual + 1);
+        int siguienteEscena = (escenaActual + 1) % totalEscenas;
         SceneManager.LoadScene(siguienteEscena);
     }
 

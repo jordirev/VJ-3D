@@ -11,12 +11,23 @@ public class SpawnPowerUp : MonoBehaviour
     public GameObject efectoDesintegracionPrefab; // Prefab con el efecto de desintegración
     public float duracionEfectoDesintegracion = 1.5f;
 
-    private float spwanProbability = 0.2f;
-
-    bool cupAppeared = false;   
+    private float spwanProbability = 0.2f;  
 
     private void Start()
     {
+        bool activateCup = false;
+
+        ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
+        if (SceneMngr != null)
+        {
+            SceneMngr.ActivateCupPowerUp += OnActivateCupPowerUp;
+        }
+    }
+
+    private void Awake()
+    {
+        bool activateCup = false;
+
         ScenesManager SceneMngr = Object.FindFirstObjectByType<ScenesManager>();
         if (SceneMngr != null)
         {
@@ -35,12 +46,16 @@ public class SpawnPowerUp : MonoBehaviour
 
     private void OnActivateCupPowerUp()
     {
-        if (!cupAppeared) activateCup = true;
+        if (!GameManager.Instance.cupAppeared)
+        {
+            activateCup = true;
+            GameManager.Instance.cupAppeared = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall") || collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Bullet"))
         {
 
             Vector3 posicion = transform.position;
@@ -63,9 +78,8 @@ public class SpawnPowerUp : MonoBehaviour
                 Destroy(efectoInstancia, (duracionEfectoDesintegracion - 1f));
             }
 
-            if (activateCup && !cupAppeared)
+            if (activateCup)
             {
-                cupAppeared = true;
                 Vector3 spawnPosition = collision.contacts[0].point;
                 spawnPosition.y += 0.5f;
                 Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
