@@ -13,14 +13,6 @@ public class GodModeWall : MonoBehaviour
     private Coroutine godModeCoroutine;
 
 
-    private void Awake()
-    {
-        isGodModeActive = false;
-        if (GodMode != null) GodMode.SetActive(isGodModeActive);
-        if (godModeText != null) godModeText.gameObject.SetActive(false);
-        if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false);
-    }
-
     void Start()
     {
         if (GodMode != null) GodMode.SetActive(false);
@@ -30,6 +22,7 @@ public class GodModeWall : MonoBehaviour
         if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false);
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -43,6 +36,10 @@ public class GodModeWall : MonoBehaviour
 
             if (TempoGodMode != null) TempoGodMode.gameObject.SetActive(false); // No mostrar temporizador si se activa manualmente
 
+            if (isGodModeActive)
+            {
+                MoverBolasEnPared();
+            }
         }
     }
 
@@ -52,6 +49,8 @@ public class GodModeWall : MonoBehaviour
         {
             StopCoroutine(godModeCoroutine);
         }
+
+        MoverBolasEnPared();
 
         godModeCoroutine = StartCoroutine(GodModeConTemporizador(duracion));
     }
@@ -90,5 +89,44 @@ public class GodModeWall : MonoBehaviour
     public bool IsGodModeActive
     {
         get { return isGodModeActive; }
+    }
+
+    private void MoverBolasEnPared()
+    {
+        if (GodMode == null) return;
+
+        // Obtener la posici�n y dimensiones de la pared del GodMode
+        Collider wallCollider = GodMode.GetComponent<Collider>();
+        if (wallCollider == null) return;
+
+        Bounds wallBounds = wallCollider.bounds;
+
+        // Buscar todas las bolas en la escena
+        GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
+
+        foreach (GameObject ball in balls)
+        {
+            // Comprobar si la bola est� dentro o muy cerca de la pared
+            if (wallBounds.Contains(ball.transform.position) ||
+                Vector3.Distance(ball.transform.position, wallBounds.ClosestPoint(ball.transform.position)) < 0.5f)
+            {
+                // Mover la bola hacia (-1,0,0) para sacarla de la pared
+                ball.transform.position += new Vector3(-3f, 0f, 0f);
+
+                // Si la bola tiene un Rigidbody, asegurarse de que siga movi�ndose
+                Rigidbody rb = ball.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    if (rb.linearVelocity.magnitude < 2f || rb.linearVelocity.x > 0)
+                    {
+                        BallBounce ballScript = ball.GetComponent<BallBounce>();
+                        float velocidad = (ballScript != null) ? 10f : 10f;
+                        rb.linearVelocity = new Vector3(-1f, 0f, 0f).normalized * velocidad;
+                    }
+                }
+
+                Debug.Log("Bola desplazada para evitar quedar atrapada en la pared del GodMode");
+            }
+        }
     }
 }

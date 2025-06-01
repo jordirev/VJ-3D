@@ -8472,6 +8472,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
+      propertyPath: sonidoPowerup
+      value: 
+      objectReference: {fileID: 8300000, guid: ab0fa343ada2b56439701e2e6b99fb01, type: 3}
+    - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: nextLevelImage
       value: 
       objectReference: {fileID: 1279476938}
