@@ -114,7 +114,11 @@ public class BallBounce : MonoBehaviour
                 isEnganchada = false;
                 rb.isKinematic = false;
                 GetComponent<Collider>().enabled = true;
-                rb.linearVelocity = Vector3.left * velocidadInicial;
+
+                rb.linearVelocity = Vector3.zero;
+                rb.linearVelocity = new Vector3(-1, 0, 0) * velocidadInicial;
+                ultimaVelocidad = rb.linearVelocity;
+
                 tiempoDesenganche = retardoReenganche; // Inicia el retardo
             }
 
