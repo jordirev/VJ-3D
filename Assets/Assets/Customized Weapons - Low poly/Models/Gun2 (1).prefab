@@ -133,3 +133,5 @@ MonoBehaviour:
   firePoint: {fileID: 8449867106339216440}
   bulletSpeed: 20
   fireRate: 1
+  sonidoBala: {fileID: 8300000, guid: 712391c300521e94ab57779f806f0c3e, type: 3}
+  volumenSonido: 0.2

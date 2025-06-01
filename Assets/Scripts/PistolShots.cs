@@ -10,6 +10,22 @@ public class Gun : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip sonidoBala;
+    [SerializeField] private float volumenSonido = 0.5f;
+    private AudioSource audioSource;
+
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
+    }
     void Update()
     {
         if (Time.time >= nextFireTime)
@@ -27,6 +43,8 @@ public class Gun : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = firePoint.forward * bulletSpeed;
+
+        ReproducirSonidoBala();
 
         // Añadir el script BulletDestruction si no existe
         if (bullet.GetComponent<BulletDestruction>() == null)
@@ -62,6 +80,19 @@ public class Gun : MonoBehaviour
             yield return null;
         }
         transform.localPosition = originalPosition;
+    }
+
+    private void ReproducirSonidoBala()
+    {
+        if (sonidoBala != null && audioSource != null)
+        {
+            audioSource.volume = volumenSonido;
+            audioSource.PlayOneShot(sonidoBala);
+        }
+        else
+        {
+            Debug.LogWarning("Error sonido");
+        }
     }
 }
 
