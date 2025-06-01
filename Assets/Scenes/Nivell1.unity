@@ -2493,6 +2493,8 @@ MonoBehaviour:
   volumenSonido2: 1
   sonidoPared: {fileID: 8300000, guid: b326ae6b3c5e4374081abac25e55ab4f, type: 3}
   volumenSonido3: 1
+  sonidoLoseLife: {fileID: 8300000, guid: 83cb638428a631845b0ed13cd5fc2350, type: 3}
+  volumenSonidoLoseLife: 1
   isPowerBallActive: 0
   offsetDesdePaleta: {x: -0.5, y: -0.4, z: 0}
 --- !u!54 &417778935
@@ -6048,6 +6050,8 @@ MonoBehaviour:
   nextLevelImage: {fileID: 646043504}
   musicaFondo: {fileID: 8300000, guid: e111bc8e2ffaa264092c1a304ea7a120, type: 3}
   volumenMusica: 0.5
+  sonidoWin: {fileID: 8300000, guid: d6355fbabaf3b5140b3d0848e009b49d, type: 3}
+  volumenWin: 0.5
 --- !u!114 &1020396077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6061,6 +6065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverImage: {fileID: 2088910353}
+  gameOverSound: {fileID: 8300000, guid: e02d36b695f9c1e4e899b251493e4ecf, type: 3}
 --- !u!1001 &1041421765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9380,6 +9385,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
+      propertyPath: sonidoWin
+      value: 
+      objectReference: {fileID: 8300000, guid: d6355fbabaf3b5140b3d0848e009b49d, type: 3}
+    - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: velocidad
       value: 7
       objectReference: {fileID: 0}
@@ -10963,6 +10972,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3492352787990717689, guid: 83e7f8f2fbac4214f91b27ac12f362c4, type: 3}
   m_PrefabInstance: {fileID: 2092749744}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2101838289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 139732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_Name
+      value: Crystal Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.6418614
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8091695
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.5627255
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 439732, guid: da02e777db1a845488be1afe4a301955, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da02e777db1a845488be1afe4a301955, type: 3}
 --- !u!4 &2104389047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7872121113164676343, guid: b65b146bc7750254181f043d90410137, type: 3}
@@ -11733,3 +11799,4 @@ SceneRoots:
   - {fileID: 2106366292}
   - {fileID: 1731854671}
   - {fileID: 1020396074}
+  - {fileID: 2101838289}
