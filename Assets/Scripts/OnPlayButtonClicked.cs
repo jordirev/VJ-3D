@@ -25,5 +25,6 @@ public class PlayButtonUI : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
         Debug.Log("Play button (UI) clicked");
+        GameManager.Instance.ResetGame(); 
     }
 }
