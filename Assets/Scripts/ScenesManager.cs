@@ -99,12 +99,13 @@ public class ScenesManager : MonoBehaviour
     {
         if (Input.anyKeyDown) changeScene();
         cantidadDeBloques = GameObject.FindGameObjectsWithTag("Destructible").Length;
+        float percentatgeBlocs = ((float)cantidadDeBloques) / (float)cantidadDeBloquesMax;
 
-        if (((cantidadDeBloques * 100) / cantidadDeBloquesMax <= 5f) && !GameManager.Instance.cupAppeared)
+        if (percentatgeBlocs <= 0.05f && cantidadDeBloques > 0f && !GameManager.Instance.cupAppeared)
         {
             ActivateCupPowerUp?.Invoke();
         }
-        else if (cantidadDeBloques <= 0)
+        if (cantidadDeBloques == 0)
         {
             StartCoroutine(ChangeToNextSceneCoroutine(nextLevelImage));
         }
@@ -143,7 +144,7 @@ public class ScenesManager : MonoBehaviour
         text.SetActive(false);
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int totalEscenas = SceneManager.sceneCountInBuildSettings;
-        int siguienteEscena = (escenaActual + 1);
+        int siguienteEscena = (escenaActual + 1) % totalEscenas;
         SceneManager.LoadScene(siguienteEscena);
     }
 
