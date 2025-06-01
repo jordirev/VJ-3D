@@ -8266,7 +8266,7 @@ PrefabInstance:
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: prefabBall
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2010979325}
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: pistolPrefab
       value: 
@@ -8278,7 +8278,7 @@ PrefabInstance:
     - target: {fileID: 4201817244717906671, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
       propertyPath: nextLevelImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1377629617}
     m_RemovedComponents:
     - {fileID: 5614849558614452309, guid: 3d5fe156097e74644a21756f4248b872, type: 3}
     m_RemovedGameObjects: []
